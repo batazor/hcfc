@@ -1,0 +1,16 @@
+project:
+  name: Example
+  description: Test tool for generation helm chart
+
+deployment:
+  scale: 1
+  image:
+    repository: batazor/example
+    tag: latest
+
+service:
+  type: NodePort
+
+ingress:
+  enable: true
+  domain: example.com

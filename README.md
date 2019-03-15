@@ -34,6 +34,9 @@ ingress:
 
 #### v1.0
 
+- [ ] Command
+  - [ ] `generate` is a command generation helm chart
+  - [ ] `-o` output directory
 - [ ] Generation simple chart
   - [ ] Chart.yaml
   - [ ] values.yaml
@@ -48,3 +51,7 @@ ingress:
 #### v1.2
 
 - [ ] Generation gitlab-ci.yaml
+
+#### v1.3
+
+- [ ] Support custom template (go-modules? middleware?)
