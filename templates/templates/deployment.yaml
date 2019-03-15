@@ -4,7 +4,7 @@ metadata:
     name: {{.chart.name}}
     labels:
       app.kubernetes.io/name: {{.chart.name}}
-      app.kubernetes.io/instance: {{.chart.name}}
+      app.kubernetes.io/instance: {{ ignore ".Release.Name" }}
       app.kubernetes.io/managed-by: Tiller
       helm.sh/chart: {{.chart.name}}-{{.chart.version}}
 spec:

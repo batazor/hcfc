@@ -81,7 +81,11 @@ func RecursiveBuildFile(cfg BuildConfig, config interface{}) error {
 // the out stream.
 func ExecuteTemplates(file string, config interface{}) (error, string) {
 	newTemplate := strings.Split(file, "/")
-	tpl, err := template.New(newTemplate[len(newTemplate)-1]).Funcs(engine.FuncMap()).ParseFiles(file)
+	FuncMap := engine.FuncMap()
+
+	FuncMap["ignore"] = Ignore
+
+	tpl, err := template.New(newTemplate[len(newTemplate)-1]).Funcs(FuncMap).ParseFiles(file)
 	if err != nil {
 		return fmt.Errorf("Error parsing template(s): %v", err), ""
 	}
@@ -93,4 +97,8 @@ func ExecuteTemplates(file string, config interface{}) (error, string) {
 	}
 
 	return nil, buf.String()
+}
+
+func Ignore(v interface{}) string {
+	return strings.Join([]string{"{{", v.(string), "}}"}, " ")
 }

@@ -30,6 +30,19 @@ ingress:
   enable: true
 ```
 
+### Function
+
+1. ignore
+1. toToml
+1. toYaml
+1. fromYaml
+1. toJson
+1. fromJson
+1. include
+1. required
+1. tpl
+
+
 ### ROADMAP
 
 #### v1.0 first version
