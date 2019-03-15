@@ -38,12 +38,13 @@ ingress:
   - [x] `generate` is a command generation helm chart
   - [x] `-o` output directory
   - [x] `-f` path to values file `values.yaml`
-  - [ ] `-t` template directory
+  - [x] `-t` template directory
 - [ ] Generation simple chart from templates
-  - [ ] Chart.yaml
-  - [ ] values.yaml
+  - [x] Chart.yaml
   - [ ] deployment.yaml
   - [ ] service.yaml
+  - [ ] values.yaml # copy `example/values.yaml` and delete `chart` (if f.Name() == 'values.yaml')
+  - [x] add support Helm parsing
 
 #### v1.1 Add CI/Refactoring
 

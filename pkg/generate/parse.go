@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"gopkg.in/yaml.v2"
 	"io/ioutil"
+	"k8s.io/helm/pkg/engine"
 	"os"
 	"path/filepath"
 	"strings"
@@ -23,7 +24,7 @@ func Build(config BuildConfig) error {
 		return err
 	}
 
-	if err = RecursiveBuildFile(config, &helmChart); err != nil {
+	if err = RecursiveBuildFile(config, helmChart); err != nil {
 		return err
 	}
 
@@ -79,7 +80,8 @@ func RecursiveBuildFile(cfg BuildConfig, config interface{}) error {
 // for the tpl_files templates and writes the executed templates to
 // the out stream.
 func ExecuteTemplates(file string, config interface{}) (error, string) {
-	tpl, err := template.ParseFiles(file)
+	newTemplate := strings.Split(file, "/")
+	tpl, err := template.New(newTemplate[len(newTemplate)-1]).Funcs(engine.FuncMap()).ParseFiles(file)
 	if err != nil {
 		return fmt.Errorf("Error parsing template(s): %v", err), ""
 	}
