@@ -5,6 +5,8 @@ import (
 	"fmt"
 	"gopkg.in/yaml.v2"
 	"io/ioutil"
+	"os"
+	"path/filepath"
 	"strings"
 	"text/template"
 )
@@ -29,23 +31,45 @@ func Build(config BuildConfig) error {
 }
 
 func RecursiveBuildFile(cfg BuildConfig, config interface{}) error {
-	files, err := ioutil.ReadDir(cfg.Template)
+	err := filepath.Walk(cfg.Template, func(path string, f os.FileInfo, err error) error {
+		if err != nil {
+			return err
+		}
+
+		if f.IsDir() == false {
+			err, response := ExecuteTemplates(path, config)
+			if err != nil {
+				return err
+			}
+
+			// Create path to file
+			s := []string{cfg.Output}
+			for _, v := range strings.Split(path, "/")[1:] {
+				s = append(s, v)
+			}
+			pathOutput := strings.Join(s, "/")
+
+			// Check directory
+			s = []string{cfg.Output}
+			for _, v := range strings.Split(path, "/")[:1] {
+				s = append(s, v)
+			}
+			dirOutput := strings.Join(s, "/")
+			if _, err := os.Stat(dirOutput); os.IsNotExist(err) {
+				os.MkdirAll(dirOutput, os.ModePerm)
+			}
+
+			err = ioutil.WriteFile(pathOutput, []byte(response), 0644)
+			if err != nil {
+				return err
+			}
+		}
+
+		return nil
+	})
+
 	if err != nil {
 		return err
-	}
-
-	for _, f := range files {
-		pathTemplate := strings.Join([]string{cfg.Template, f.Name()}, "/")
-		err, response := ExecuteTemplates(pathTemplate, config)
-		if err != nil {
-			return err
-		}
-
-		pathOutput := strings.Join([]string{cfg.Output, f.Name()}, "/")
-		err = ioutil.WriteFile(pathOutput, []byte(response), 0644)
-		if err != nil {
-			return err
-		}
 	}
 
 	return nil
