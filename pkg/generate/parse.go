@@ -9,8 +9,8 @@ import (
 	"text/template"
 )
 
-func Build(filePath, output string) error {
-	data, err := ioutil.ReadFile(filePath)
+func Build(config BuildConfig) error {
+	data, err := ioutil.ReadFile(config.Filename)
 	if err != nil {
 		return err
 	}
@@ -21,15 +21,31 @@ func Build(filePath, output string) error {
 		return err
 	}
 
-	err, response := ExecuteTemplates("./templates/Chart.yaml", &helmChart)
+	if err = RecursiveBuildFile(config, &helmChart); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func RecursiveBuildFile(cfg BuildConfig, config interface{}) error {
+	files, err := ioutil.ReadDir(cfg.Template)
 	if err != nil {
 		return err
 	}
 
-	path := strings.Join([]string{output, "/Chart.yaml"}, "")
-	err = ioutil.WriteFile(path, []byte(response), 0644)
-	if err != nil {
-		return err
+	for _, f := range files {
+		pathTemplate := strings.Join([]string{cfg.Template, f.Name()}, "/")
+		err, response := ExecuteTemplates(pathTemplate, config)
+		if err != nil {
+			return err
+		}
+
+		pathOutput := strings.Join([]string{cfg.Output, f.Name()}, "/")
+		err = ioutil.WriteFile(pathOutput, []byte(response), 0644)
+		if err != nil {
+			return err
+		}
 	}
 
 	return nil

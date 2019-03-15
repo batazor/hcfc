@@ -38,6 +38,7 @@ ingress:
   - [x] `generate` is a command generation helm chart
   - [x] `-o` output directory
   - [x] `-f` path to values file `values.yaml`
+  - [ ] `-t` template directory
 - [ ] Generation simple chart from templates
   - [ ] Chart.yaml
   - [ ] values.yaml
@@ -61,5 +62,4 @@ ingress:
 
 #### v1.3
 
-- [ ] Support custom template (go-modules? middleware?)
 - [ ] Support dependencies chart
