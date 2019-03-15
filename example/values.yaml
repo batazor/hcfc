@@ -1,6 +1,7 @@
-project:
+chart:
   name: Example
   description: Test tool for generation helm chart
+  version: 0.1.0
 
 deployment:
   scale: 1

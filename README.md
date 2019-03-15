@@ -32,26 +32,34 @@ ingress:
 
 ### ROADMAP
 
-#### v1.0
+#### v1.0 first version
 
-- [ ] Command
-  - [ ] `generate` is a command generation helm chart
-  - [ ] `-o` output directory
-- [ ] Generation simple chart
+- [x] Command
+  - [x] `generate` is a command generation helm chart
+  - [x] `-o` output directory
+  - [x] `-f` path to values file `values.yaml`
+- [ ] Generation simple chart from templates
   - [ ] Chart.yaml
   - [ ] values.yaml
   - [ ] deployment.yaml
   - [ ] service.yaml
 
-#### v1.1
+#### v1.1 Add CI/Refactoring
 
-- [ ] Generation ingress
-- [ ] Support dependencies chart
+- [ ] Use logger `zap`
+- [ ] Add CI
+  - [ ] Build binary file
+  - [ ] Build docker image
+  - [ ] GitHub Action
+  - [ ] Coverage
 
-#### v1.2
+#### v1.2 Support Giltab
 
 - [ ] Generation gitlab-ci.yaml
+- [ ] Support ENV
+- [ ] Add test example
 
 #### v1.3
 
 - [ ] Support custom template (go-modules? middleware?)
+- [ ] Support dependencies chart
