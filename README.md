@@ -7,7 +7,7 @@ generate Helm Chart from yaml config
 ```
 go get -u hcfc
 
-hcfc generate -o ops/Helm value.yaml
+hcfc generate -o ./mychart -f ./example/values.yaml
 ```
 
 **value.yaml**
@@ -39,11 +39,10 @@ ingress:
   - [x] `-o` output directory
   - [x] `-f` path to values file `values.yaml`
   - [x] `-t` template directory
-- [ ] Generation simple chart from templates
+- [x] Generation simple chart from templates
   - [x] Chart.yaml
-  - [ ] deployment.yaml
-  - [ ] service.yaml
-  - [ ] values.yaml # copy `example/values.yaml` and delete `chart` (if f.Name() == 'values.yaml')
+  - [x] deployment.yaml
+  - [x] service.yaml
   - [x] add support Helm parsing
 
 #### v1.1 Add CI/Refactoring

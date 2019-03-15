@@ -1,1 +1,19 @@
-name: {{.chart.name}}
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{.chart.name}}
+  labels:
+    app.kubernetes.io/name: {{.chart.name}}
+    app.kubernetes.io/instance: {{.chart.name}}
+    app.kubernetes.io/managed-by: Tiller
+    helm.sh/chart: {{.chart.name}}-{{.chart.version}}
+spec:
+  type: {{ .service.type }}
+  ports:
+    - port: {{ .service.port }}
+      targetPort: http
+      protocol: TCP
+      name: http
+  selector:
+    app.kubernetes.io/name: {{.chart.name}}
+    app.kubernetes.io/instance: {{.chart.name}}
