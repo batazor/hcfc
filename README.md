@@ -76,3 +76,7 @@ ingress:
 #### v1.3
 
 - [ ] Support dependencies chart
+
+#### v2.0
+
+- [ ] Interactive create config `values.yaml`
