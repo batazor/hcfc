@@ -1,5 +1,5 @@
 workflow "Build and Publish" {
-  on = "push"
+  on = "release"
   resolves = [
     "Docker Publish",
     "release darwin/amd64",
