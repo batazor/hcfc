@@ -70,6 +70,7 @@ ingress:
 #### v1.2 Support Giltab
 
 - [ ] Add command `init`
+  - [ ] Add type `GitLab`
   - [ ] Generate Dockerfile (as plugins)
     - [ ] NodeJS
     - [ ] Simple HTML
@@ -83,6 +84,11 @@ ingress:
     - [ ] Deploy chart
 - [ ] Support ENV
 - [ ] Add test example
+
+#### v1.4 Support GitHub Action
+
+- [ ] Update command `init`
+  - [ ] Add type `GitHub`
 
 #### v1.3
 
