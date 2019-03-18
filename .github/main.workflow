@@ -41,7 +41,7 @@ action "Docker Publish" {
 }
 
 action "release darwin/amd64" {
-  uses = "batazor/golang/release@master"
+  uses = "batazor/actions/golang/release@master"
   env = {
     GOOS = "darwin"
     GOARCH = "amd64"
@@ -50,7 +50,7 @@ action "release darwin/amd64" {
 }
 
 action "release windows/amd64" {
-  uses = "batazor/golang/release@master"
+  uses = "batazor/actions/golang/release@master"
   env = {
     GOOS = "windows"
     GOARCH = "amd64"
@@ -59,7 +59,7 @@ action "release windows/amd64" {
 }
 
 action "release linux/amd64" {
-  uses = "batazor/golang/release@master"
+  uses = "batazor/actions/golang/release@master"
   env = {
     GOOS = "linux"
     GOARCH = "amd64"
