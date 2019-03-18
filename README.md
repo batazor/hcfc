@@ -67,6 +67,10 @@ ingress:
   - [ ] GitHub Action
   - [ ] Coverage
 
+#### v1.1.1 dogfooding
+
+- [ ] Use chart generator :-)
+
 #### v1.2 Support Giltab
 
 - [ ] Add command `init`
@@ -85,14 +89,30 @@ ingress:
 - [ ] Support ENV
 - [ ] Add test example
 
-#### v1.4 Support GitHub Action
+#### v1.2.1 dogfooding
+
+- [ ] Use gitlab generator :-)
+
+#### v1.3 Support GitHub Action
 
 - [ ] Update command `init`
   - [ ] Add type `GitHub`
 
-#### v1.3
+#### v1.3.1 dogfooding
+
+- [ ] Use gitlab generator :-)
+
+#### v1.4
 
 - [ ] Support dependencies chart
+
+#### v1.5 Monitoring
+
+- [ ] Support prometheus
+  - [ ] Add template
+    - [ ] Ping
+    - [ ] healthcheck
+- [ ] Dashboard for grafana
 
 #### v2.0
 
