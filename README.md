@@ -63,7 +63,7 @@ ingress:
 - [ ] Use logger `zap`
 - [ ] Add CI
   - [ ] Build binary file
-  - [ ] Build docker image
+  - [x] Build docker image
   - [ ] GitHub Action
   - [ ] Coverage
 

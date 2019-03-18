@@ -1,22 +1,17 @@
 workflow "Build and Publish" {
   on = "push"
-  resolves = "Publish"
+  resolves = "Docker Publish"
 }
 
-action "Lint" {
-  uses = "actions/action-builder/shell@master"
-  args = "lint"
+action "Build" {
+  uses = "actions/docker/cli@master"
+  args = "build -t hcfc ."
 }
 
-action "Test" {
-  uses = "actions/action-builder/shell@master"
-  args = "test"
-}
-
-action "build docker image" {
-  needs = ["Lint", "Test"]
-  uses = "actions/action-builder/docker@master"
-  args = "build"
+action "Docker Tag" {
+  needs = ["Build"]
+  uses = "actions/docker/tag@master"
+  args = "hcfc batazor/hcfc --no-latest"
 }
 
 action "Publish Filter" {
@@ -28,12 +23,14 @@ action "Publish Filter" {
 action "Docker Login" {
   needs = ["Publish Filter"]
   uses = "actions/docker/login@master"
-  secrets = ["DOCKER_USERNAME", "DOCKER_PASSWORD"]
+  secrets = [
+    "DOCKER_PASSWORD",
+    "DOCKER_USERNAME",
+  ]
 }
 
-action "Publish" {
-  needs = ["Docker Login"]
-  uses = "actions/action-builder/docker@master"
-  runs = "make"
-  args = "publish"
+action "Docker Publish" {
+  needs = ["Docker Tag", "Docker Login"]
+  uses = "actions/docker/cli@master"
+  args = "push batazor/hcfc"
 }
