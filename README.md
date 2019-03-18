@@ -30,7 +30,7 @@ ingress:
   enable: true
 ```
 
-### Function
+### Function template
 
 1. ignore
 1. toToml
@@ -69,7 +69,18 @@ ingress:
 
 #### v1.2 Support Giltab
 
+- [ ] Add command `init`
+  - [ ] Generate Dockerfile (as plugins)
+    - [ ] NodeJS
+    - [ ] Simple HTML
+    - [ ] Golang
+    - [ ] Yii
 - [ ] Generation gitlab-ci.yaml
+  - [ ] Jobs:
+    - [ ] Build Dockerfile
+    - [ ] Push to registry
+    - [ ] Generate Helm chart
+    - [ ] Deploy chart
 - [ ] Support ENV
 - [ ] Add test example
 
