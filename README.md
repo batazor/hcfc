@@ -5,7 +5,7 @@ generate Helm Chart from yaml config
 ### Getting start
 
 ```
-go get -u hcfc
+go get -u github.com/batazor/hcfc/cmd
 
 hcfc generate -o ./mychart -f ./example/values.yaml
 ```
@@ -58,17 +58,16 @@ ingress:
   - [x] service.yaml
   - [x] add support Helm parsing
 
-#### v1.1 Add CI/Refactoring
+#### v1.0.1 Add CI/Refactoring
+
+- [x] Add CI
+  - [x] Build binary file
+  - [x] Build docker image
+  - [x] GitHub Action
+
+#### v1.1.0 dogfooding
 
 - [ ] Use logger `zap`
-- [ ] Add CI
-  - [ ] Build binary file
-  - [x] Build docker image
-  - [ ] GitHub Action
-  - [ ] Coverage
-
-#### v1.1.1 dogfooding
-
 - [ ] Use chart generator :-)
 
 #### v1.2 Support Giltab
