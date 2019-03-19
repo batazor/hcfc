@@ -8,11 +8,6 @@ workflow "Build and Publish" {
   ]
 }
 
-action "Build" {
-  uses = "actions/docker/cli@master"
-  args = "build -t hcfc ."
-}
-
 action "Docker Tag" {
   needs = ["Build"]
   uses = "actions/docker/tag@master"
@@ -20,9 +15,14 @@ action "Docker Tag" {
 }
 
 action "Publish Filter" {
-  needs = ["Build"]
   uses = "actions/bin/filter@master"
-  args = "branch master"
+  args = "tag"
+}
+
+action "Build" {
+  needs = ["Publish Filter"]
+  uses = "actions/docker/cli@master"
+  args = "build -t hcfc ."
 }
 
 action "Docker Login" {
