@@ -7,27 +7,29 @@ generate Helm Chart from yaml config
 ```
 go get -u github.com/batazor/hcfc
 
-hcfc generate -o ./mychart -f ./example/values.yaml
+hcfc init // Create deploy.yaml
+hcfc generate -o ./mychart -f deploy.yaml
 ```
 
 **value.yaml**
 
 ```
-
-projectName: example
-
+chart:
+  name: hcfc
+  description: ""
+  version: 0.1.0
+ 
 deployment:
-  scale: 1
   image:
-    repository: batazor/example
+    repository: alpine
     tag: latest
-
+ 
 service:
-  type: NodePort
-  port: 5672
+  type: ClusterIP
 
 ingress:
   enable: true
+  domain: example.com
 ```
 
 ### Function template
@@ -50,7 +52,7 @@ ingress:
 - [x] Command
   - [x] `generate` is a command generation helm chart
   - [x] `-o` output directory
-  - [x] `-f` path to values file `values.yaml`
+  - [x] `-f` path to values file `deploy.yaml`
   - [x] `-t` template directory
 - [x] Generation simple chart from templates
   - [x] Chart.yaml
@@ -65,7 +67,15 @@ ingress:
   - [x] Build docker image
   - [x] GitHub Action
 
-#### v1.1.0 dogfooding
+#### v1.1.0 easy create deploy config
+
+- [x] Use custom logger (for formatting logs)
+- [x] Add command `init` - Generate a new `deploy.yaml` config
+  - [x] Confirm create a new config
+  - [x] Write name, description, version  
+  - [x] Generation base deployment, service ,ingress (optional)
+
+#### v.1.1.1 dogfooding
 
 - [ ] Use chart generator :-)
 
@@ -114,4 +124,4 @@ ingress:
 
 #### v2.0
 
-- [ ] Interactive create config `values.yaml`
+- [ ] Interactive create config `deploy.yaml`

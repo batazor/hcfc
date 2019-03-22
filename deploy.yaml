@@ -1,0 +1,13 @@
+chart:
+  name: hcfc
+  description: ""
+  version: 0.1.0
+deployment:
+  image:
+    repository: alpine
+    tag: latest
+service:
+  type: ClusterIP
+ingress:
+  enable: true
+  domain: example.com

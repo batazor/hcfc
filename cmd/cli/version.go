@@ -1,8 +1,8 @@
 package cli
 
 import (
-	"fmt"
 	"github.com/spf13/cobra"
+	"log"
 )
 
 var versionCmd = &cobra.Command{
@@ -10,7 +10,7 @@ var versionCmd = &cobra.Command{
 	Short: "Print the version number of hcfc",
 	Long:  `All software has versions. This is Hugo's`,
 	Run: func(cmd *cobra.Command, args []string) {
-		fmt.Println("hcfc v0.1")
+		log.Println("hcfc v0.1")
 	},
 }
 

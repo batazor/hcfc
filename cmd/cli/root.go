@@ -1,8 +1,8 @@
 package cli
 
 import (
-	"fmt"
 	"github.com/spf13/cobra"
+	"log"
 	"os"
 )
 
@@ -12,13 +12,13 @@ var rootCmd = &cobra.Command{
 	Short: "Generate a new helm chart",
 	Long:  "",
 	Run: func(cmd *cobra.Command, args []string) {
-		fmt.Println("Try: hcfc --help")
+		log.Println("Try: hcfc --help")
 	},
 }
 
 func Execute() {
 	if err := rootCmd.Execute(); err != nil {
-		fmt.Println(err.Error())
+		log.Println(err.Error())
 		os.Exit(1)
 	}
 }
