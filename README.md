@@ -5,7 +5,7 @@ generate Helm Chart from yaml config
 ### Getting start
 
 ```
-go get -u github.com/batazor/hcfc/cmd
+go get -u github.com/batazor/hcfc
 
 hcfc generate -o ./mychart -f ./example/values.yaml
 ```
