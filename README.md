@@ -67,7 +67,6 @@ ingress:
 
 #### v1.1.0 dogfooding
 
-- [ ] Use logger `zap`
 - [ ] Use chart generator :-)
 
 #### v1.2 Support Giltab
