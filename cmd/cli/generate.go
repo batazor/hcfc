@@ -27,9 +27,13 @@ hcfc generate -o ./ops/Helm/mychart -f deploy.yaml
 }
 
 func init() {
+	// Init CLI command
 	rootCmd.AddCommand(generateCmd)
 	generateCmd.Flags().StringVarP(&config.Filename, "filename", "f", "./deploy.yaml", "config file")
-	generateCmd.Flags().StringVarP(&config.Output, "output", "o", "./", "output directory")
-	generateCmd.Flags().StringVarP(&config.Template, "template", "t", "./templates", "templates file")
+	generateCmd.Flags().StringVarP(&config.Template.Output, "output", "o", "./", "output directory")
+	generateCmd.Flags().StringVarP(&config.Template.Path, "template", "t", "./templates", "templates file")
 	generateCmd.MarkFlagRequired("output")
+
+	// Create store templates
+	config.Templates.Init("templates", config.Template.Path)
 }

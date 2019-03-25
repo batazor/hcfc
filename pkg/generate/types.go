@@ -1,8 +1,17 @@
 package generate
 
+import "github.com/batazor/hcfc/pkg/templates"
+
 type BuildConfig struct {
+	Filename  string
+	Template  Template
+	Templates templates.Template
+}
+
+type Template struct {
+	Path     string
 	Output   string
-	Filename string
+	Values   Project
 	Template string
 }
 

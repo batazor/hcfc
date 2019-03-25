@@ -19,6 +19,34 @@ github.com/client9/misspell
 github.com/cyphar/filepath-securejoin
 # github.com/ghodss/yaml v1.0.0
 github.com/ghodss/yaml
+# github.com/gobuffalo/envy v1.6.15
+github.com/gobuffalo/envy
+# github.com/gobuffalo/genny v0.0.0-20190315124720-e16e52a93c79
+github.com/gobuffalo/genny
+# github.com/gobuffalo/gogen v0.0.0-20190315121717-8f38393713f5
+github.com/gobuffalo/gogen
+github.com/gobuffalo/gogen/goimports
+github.com/gobuffalo/gogen/gomods
+# github.com/gobuffalo/logger v0.0.0-20190315122211-86e12af44bc2
+github.com/gobuffalo/logger
+# github.com/gobuffalo/mapi v1.0.1
+github.com/gobuffalo/mapi
+# github.com/gobuffalo/packd v0.0.0-20190315124812-a385830c7fc0
+github.com/gobuffalo/packd
+# github.com/gobuffalo/packr/v2 v2.0.8
+github.com/gobuffalo/packr/v2/packr2
+github.com/gobuffalo/packr/v2/packr2/cmd
+github.com/gobuffalo/packr/v2
+github.com/gobuffalo/packr/v2/jam
+github.com/gobuffalo/packr/v2/packr2/cmd/fix
+github.com/gobuffalo/packr/v2/plog
+github.com/gobuffalo/packr/v2/file
+github.com/gobuffalo/packr/v2/file/resolver
+github.com/gobuffalo/packr/v2/jam/parser
+github.com/gobuffalo/packr/v2/jam/store
+github.com/gobuffalo/packr/v2/file/resolver/encoding/hex
+# github.com/gobuffalo/syncx v0.0.0-20190224160051-33c29581e754
+github.com/gobuffalo/syncx
 # github.com/gobwas/glob v0.2.3
 github.com/gobwas/glob
 github.com/gobwas/glob/compiler
@@ -46,15 +74,25 @@ github.com/huandu/xstrings
 github.com/imdario/mergo
 # github.com/inconshreveable/mousetrap v1.0.0
 github.com/inconshreveable/mousetrap
+# github.com/joho/godotenv v1.3.0
+github.com/joho/godotenv
 # github.com/juju/ansiterm v0.0.0-20180109212912-720a0952cc2a
 github.com/juju/ansiterm
 github.com/juju/ansiterm/tabwriter
+# github.com/karrick/godirwalk v1.8.0
+github.com/karrick/godirwalk
+# github.com/konsorten/go-windows-terminal-sequences v1.0.1
+github.com/konsorten/go-windows-terminal-sequences
 # github.com/lunixbochs/vtclean v0.0.0-20180621232353-2d01aacdc34a
 github.com/lunixbochs/vtclean
 # github.com/manifoldco/promptui v0.3.2
 github.com/manifoldco/promptui
 github.com/manifoldco/promptui/list
 github.com/manifoldco/promptui/screenbuf
+# github.com/markbates/oncer v0.0.0-20181203154359-bf2de49a0be2
+github.com/markbates/oncer
+# github.com/markbates/safe v1.0.1
+github.com/markbates/safe
 # github.com/mattn/go-colorable v0.0.9
 github.com/mattn/go-colorable
 # github.com/mattn/go-isatty v0.0.4
@@ -68,6 +106,12 @@ github.com/nicksnyder/go-i18n/i18n/translation
 github.com/pelletier/go-toml
 # github.com/pkg/errors v0.8.1
 github.com/pkg/errors
+# github.com/rogpeppe/go-internal v1.2.2
+github.com/rogpeppe/go-internal/modfile
+github.com/rogpeppe/go-internal/module
+github.com/rogpeppe/go-internal/semver
+# github.com/sirupsen/logrus v1.4.0
+github.com/sirupsen/logrus
 # github.com/spf13/cobra v0.0.3
 github.com/spf13/cobra
 # github.com/spf13/pflag v1.0.3
@@ -77,14 +121,25 @@ github.com/tsenart/deadcode
 # golang.org/x/crypto v0.0.0-20190320223903-b7391e95e576
 golang.org/x/crypto/scrypt
 golang.org/x/crypto/pbkdf2
+golang.org/x/crypto/ssh/terminal
 # golang.org/x/lint v0.0.0-20181026193005-c67002cb31c3
 golang.org/x/lint
+# golang.org/x/sync v0.0.0-20190227155943-e225da77a7e6
+golang.org/x/sync/errgroup
 # golang.org/x/sys v0.0.0-20190322080309-f49334f85ddc
 golang.org/x/sys/unix
-# golang.org/x/tools v0.0.0-20181122213734-04b5d21e00f1
+golang.org/x/sys/windows
+# golang.org/x/tools v0.0.0-20190322162807-cc8e56e55e70
 golang.org/x/tools/go/ast/astutil
 golang.org/x/tools/go/gcexportdata
 golang.org/x/tools/go/internal/gcimporter
+golang.org/x/tools/imports
+golang.org/x/tools/go/packages
+golang.org/x/tools/internal/gopathwalk
+golang.org/x/tools/internal/module
+golang.org/x/tools/go/internal/packagesdriver
+golang.org/x/tools/internal/semver
+golang.org/x/tools/internal/fastwalk
 # gopkg.in/alecthomas/kingpin.v3-unstable v3.0.0-20180810215634-df19058c872c
 gopkg.in/alecthomas/kingpin.v3-unstable
 # gopkg.in/yaml.v2 v2.2.2

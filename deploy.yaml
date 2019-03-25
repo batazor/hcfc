@@ -4,6 +4,19 @@ chart:
   version: 0.1.0
   apiversion: ""
   appversion: ""
-deployment: []
-service: []
-ingress: []
+deployment:
+  - replicas: 0
+    image:
+      repository: alpine
+      tag: latest
+      pullpolicy: ""
+    resources: null
+    nodeselector: null
+    affinity: null
+    tolerations: null
+service:
+  - type: ClusterIP
+    port: 0
+ingress:
+  - enable: true
+    domain: example.com
