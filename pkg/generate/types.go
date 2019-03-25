@@ -8,9 +8,9 @@ type BuildConfig struct {
 
 type Project struct {
 	Chart      Chart
-	Deployment Deployment
-	Service    Service
-	Ingress    Ingress
+	Deployment []Deployment
+	Service    []Service
+	Ingress    []Ingress
 }
 
 type Chart struct {

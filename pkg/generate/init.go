@@ -121,50 +121,62 @@ func (p *Project) setChartConfig() error {
 }
 
 func (p *Project) setDeploymentConfig() error {
+	// Init deployment
+	newDeployment := Deployment{}
+
+	// Set repository
 	prompt := promptui.Prompt{
 		Label:   "Repository",
 		Default: "alpine",
 	}
-
 	repository, err := prompt.Run()
 	if err != nil {
 		return err
 	}
+	newDeployment.Image.Repository = repository
 
-	p.Deployment.Image.Repository = repository
-
+	// Set tag
 	prompt = promptui.Prompt{
 		Label:   "Tag",
 		Default: "latest",
 	}
-
 	tag, err := prompt.Run()
 	if err != nil {
 		return err
 	}
+	newDeployment.Image.Tag = tag
 
-	p.Deployment.Image.Tag = tag
+	// Append new deployment
+	p.Deployment = append(p.Deployment, newDeployment)
 
 	return nil
 }
 
 func (p *Project) setServiceConfig() error {
+	// Init deployment
+	newService := Service{}
+
+	// Set type
 	prompt := promptui.Prompt{
 		Label:   "Type",
 		Default: "ClusterIP",
 	}
-
 	typeService, err := prompt.Run()
 	if err != nil {
 		return err
 	}
+	newService.Type = typeService
 
-	p.Service.Type = typeService
+	// Append new service
+	p.Service = append(p.Service, newService)
 
 	return nil
 }
 
 func (p *Project) setIngressConfig() error {
+	// Init ingress
+	newIngress := Ingress{}
+
 	prompt := promptui.Prompt{
 		Label:     "Enable",
 		IsConfirm: true,
@@ -172,22 +184,24 @@ func (p *Project) setIngressConfig() error {
 
 	_, err := prompt.Run()
 	if err != nil {
-		p.Ingress.Enable = false
+		newIngress.Enable = false
 	}
 
-	p.Ingress.Enable = true
+	newIngress.Enable = true
 
+	// Set domain
 	prompt = promptui.Prompt{
 		Label:   "Domain",
 		Default: "example.com",
 	}
-
 	domain, err := prompt.Run()
 	if err != nil {
 		return err
 	}
+	newIngress.Domain = domain
 
-	p.Ingress.Domain = domain
+	// Append new service
+	p.Ingress = append(p.Ingress, newIngress)
 
 	return nil
 }
