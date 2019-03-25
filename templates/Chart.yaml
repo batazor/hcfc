@@ -1,6 +1,6 @@
-name: {{.chart.name}}
-version: {{.chart.version}}
-description: {{.chart.description}}
-apiVersion: {{.chart.apiVersion}}
-appVersion: {{.chart.appVersion}}
+name: {{.Name}}
+version: {{.Version}}
+description: {{.Description}}
+apiVersion: {{.ApiVersion}}
+appVersion: {{.AppVersion}}
 engine: gotpl # The name of the template engine (optional, defaults to gotpl)

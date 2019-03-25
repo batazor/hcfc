@@ -1,10 +1,21 @@
 chart:
-  name: hcfc
+  name: mychart
   description: ""
   version: 0.1.0
+  apiversion: ""
+  appversion: ""
 deployment:
-  - image:
+  - replicas: 0
+    image:
     repository: alpine
     tag: latest
-service: []
-ingress: []
+    pullpolicy: ""
+    resources: null
+    nodeselector: null
+    affinity: null
+    tolerations: null
+service:
+  - type: ClusterIP
+ingress:
+  - enable: true
+    domain: example.com

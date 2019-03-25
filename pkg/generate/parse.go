@@ -7,7 +7,6 @@ import (
 	"io/ioutil"
 	"k8s.io/helm/pkg/engine"
 	"os"
-	"path/filepath"
 	"strings"
 	"text/template"
 )
@@ -18,57 +17,105 @@ func Build(config BuildConfig) error {
 		return err
 	}
 
-	var helmChart interface{}
+	var helmChart Project
 	err = yaml.Unmarshal([]byte(data), &helmChart)
 	if err != nil {
 		return err
 	}
 
-	if err = RecursiveBuildFile(config, helmChart); err != nil {
+	if err = BuildFile(config, helmChart); err != nil {
 		return err
 	}
 
 	return nil
 }
 
-func RecursiveBuildFile(cfg BuildConfig, config interface{}) error {
-	err := filepath.Walk(cfg.Template, func(path string, f os.FileInfo, err error) error {
-		if err != nil {
+func BuildFile(cfg BuildConfig, config Project) error {
+	if err := createFile("templates/Chart.yaml", cfg.Output, config.Chart); err != nil {
+		return err
+	}
+
+	if err := createFile("templates/templates/NOTES.txt", cfg.Output, config.Chart); err != nil {
+		return err
+	}
+
+	if err := createFile("templates/values.yaml", cfg.Output, config.Chart); err != nil {
+		return err
+	}
+
+	if err := createFile("templates/.helmignore", cfg.Output, config.Chart); err != nil {
+		return err
+	}
+
+	for _, deploymentConfig := range config.Deployment {
+		cnf := struct {
+			Chart
+			Deployment
+		}{
+			config.Chart,
+			deploymentConfig,
+		}
+
+		if err := createFile("templates/templates/deployment.yaml", cfg.Output, cnf); err != nil {
 			return err
 		}
+	}
 
-		if f.IsDir() == false {
-			err, response := ExecuteTemplates(path, config)
-			if err != nil {
-				return err
-			}
-
-			// Create path to file
-			s := []string{cfg.Output}
-			for _, v := range strings.Split(path, "/")[1:] {
-				s = append(s, v)
-			}
-			pathOutput := strings.Join(s, "/")
-
-			// Check directory
-			s = []string{cfg.Output}
-			for _, v := range strings.Split(path, "/")[:1] {
-				s = append(s, v)
-			}
-			dirOutput := strings.Join(s, "/")
-			if _, err := os.Stat(dirOutput); os.IsNotExist(err) {
-				os.MkdirAll(dirOutput, os.ModePerm)
-			}
-
-			err = ioutil.WriteFile(pathOutput, []byte(response), 0644)
-			if err != nil {
-				return err
-			}
+	for _, serviceConfig := range config.Service {
+		cnf := struct {
+			Chart
+			Service
+		}{
+			config.Chart,
+			serviceConfig,
 		}
 
-		return nil
-	})
+		if err := createFile("templates/templates/service.yaml", cfg.Output, cnf); err != nil {
+			return err
+		}
+	}
 
+	for _, ingressConfig := range config.Ingress {
+		cnf := struct {
+			Chart
+			Ingress
+		}{
+			config.Chart,
+			ingressConfig,
+		}
+
+		if err := createFile("templates/templates/ingress.yaml", cfg.Output, cnf); err != nil {
+			return err
+		}
+	}
+
+	return nil
+}
+
+func createFile(path, output string, config interface{}) error {
+	err, response := ExecuteTemplates(path, config)
+	if err != nil {
+		return err
+	}
+
+	// Create path to file
+	s := []string{output}
+	for _, v := range strings.Split(path, "/")[1:] {
+		s = append(s, v)
+	}
+	pathOutput := strings.Join(s, "/")
+
+	// Check directory
+	s = []string{output}
+	for _, v := range strings.Split(path, "/")[:1] {
+		s = append(s, v)
+	}
+	dirOutput := strings.Join(s, "/")
+	if _, err := os.Stat(dirOutput); os.IsNotExist(err) {
+		os.MkdirAll(dirOutput, os.ModePerm)
+	}
+
+	err = ioutil.WriteFile(pathOutput, []byte(response), 0644)
 	if err != nil {
 		return err
 	}

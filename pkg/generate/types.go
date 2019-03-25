@@ -17,19 +17,28 @@ type Chart struct {
 	Name        string
 	Description string
 	Version     string
+	ApiVersion  string
+	AppVersion  string
 }
 
 type Deployment struct {
-	Image Image
+	Replicas     int
+	Image        Image
+	Resources    interface{}
+	NodeSelector interface{}
+	Affinity     interface{}
+	Tolerations  interface{}
 }
 
 type Image struct {
 	Repository string
 	Tag        string
+	PullPolicy string
 }
 
 type Service struct {
 	Type string
+	Port int
 }
 
 type Ingress struct {
