@@ -75,7 +75,7 @@ ingress:
   - [x] Write name, description, version  
   - [x] Generation base deployment, service ,ingress (optional)
 
-#### v.1.1.1 dogfooding
+#### v1.1.1 dogfooding
 
 - [ ] Use chart generator :-)
 
