@@ -14,7 +14,10 @@ var (
 var generateCmd = &cobra.Command{
 	Use:   "generate",
 	Short: "Generate a new helm chart",
-	Long:  "",
+	Long: `
+As example:
+hcfc generate -o ./ops/Helm/mychart -f deploy.yaml
+`,
 	Run: func(cmd *cobra.Command, args []string) {
 		if err := generate.Build(config); err != nil {
 			log.Println(err.Error())
