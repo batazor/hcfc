@@ -1,16 +1,16 @@
 package templates
 
 import (
-	"github.com/gobuffalo/packr/v2"
+	"github.com/gobuffalo/packr"
 )
 
 type Template struct {
-	Box *packr.Box
+	Box packr.Box
 }
 
 func (t *Template) Init(name, path string) {
 	// set up a new box by giving it a name and an optional (relative) path to a folder on disk:
-	t.Box = packr.New(name, "./templates")
+	t.Box = packr.NewBox("../../templates")
 }
 
 func (t *Template) Get(name string) (error, string) {
