@@ -5,11 +5,16 @@ chart:
   apiversion: ""
   appversion: ""
 deployment:
-- replicas: 0
+- name: ""
+  replicas: 0
   image:
     repository: alpine
-    tag: 3.6
+    tag: latest
     pullpolicy: ""
+  ports:
+  - name: http
+    port: 80
+    protocol: TCP
   resources: null
   nodeselector: null
   affinity: null

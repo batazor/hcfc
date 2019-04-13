@@ -25,6 +25,8 @@ spec:
         image: {{ text "{{ .Values.Deployment[" }}{{ default 0 .Index }}{{ text "].Image.Repository }}" }}:{{ text "{{ .Values.Deployment[" }}{{ default 0 .Index }}{{ text "].Image.Tag }}" }}
         enableServiceLinks: false
         ports:
-        - name: http
-          containerPort: 80
-          protocol: TCP
+        {{- range $key, $value := .Deployment.Ports }}
+        - name: {{ $value.Name }}
+          containerPort: {{ $value.Port }}
+          protocol: {{ $value.Protocol }}
+        {{- end }}

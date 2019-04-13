@@ -2,11 +2,13 @@ package generate
 
 import (
 	"errors"
+	"fmt"
 	"github.com/manifoldco/promptui"
 	"gopkg.in/yaml.v2"
 	"io/ioutil"
 	"os"
 	"path/filepath"
+	"strconv"
 )
 
 func (p *Project) Init() error {
@@ -169,6 +171,60 @@ func (p *Project) setDeploymentConfig() error {
 		return err
 	}
 	newDeployment.Image.Tag = tag
+
+	// Create port
+	isAddResource := p.isConfirm("Add a port")
+	fmt.Println("isAddResource", isAddResource)
+	if isAddResource == nil {
+		for {
+			// Set portName
+			setPortName := promptui.Prompt{
+				Label:   "Port name",
+				Default: "http",
+			}
+			portName, err := setPortName.Run()
+			if err != nil {
+				return err
+			}
+
+			// Set port
+			setPortInt := promptui.Prompt{
+				Label:   "Port",
+				Default: "80",
+			}
+			port1, err := setPortInt.Run()
+			if err != nil {
+				return err
+			}
+			portInt1, err := strconv.Atoi(port1)
+			if err != nil {
+				return err
+			}
+
+			// Set protocol
+			protocol := promptui.Select{
+				Label: "protocol",
+				Items: []string{"TCP", "UDP"},
+			}
+			_, protocolPort, err := protocol.Run()
+			if err != nil {
+				return err
+			}
+			fmt.Println("protocolPort", protocolPort)
+
+			port := Port{
+				portName,
+				portInt1,
+				protocolPort,
+			}
+			newDeployment.Ports = append(newDeployment.Ports, port)
+
+			isAddResource = p.isConfirm("Add a port")
+			if isAddResource != nil {
+				break
+			}
+		}
+	}
 
 	// Append new deployment
 	p.Deployment = append(p.Deployment, newDeployment)

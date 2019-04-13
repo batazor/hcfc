@@ -35,6 +35,7 @@ type Deployment struct {
 	Name         string
 	Replicas     int
 	Image        Image
+	Ports        []Port
 	Resources    interface{}
 	NodeSelector interface{}
 	Affinity     interface{}
@@ -45,6 +46,12 @@ type Image struct {
 	Repository string
 	Tag        string
 	PullPolicy string
+}
+
+type Port struct {
+	Name     string
+	Port     int
+	Protocol string
 }
 
 type Service struct {
