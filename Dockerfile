@@ -5,16 +5,17 @@ ARG CI_COMMIT_TAG
 # Build project
 WORKDIR /go/src/github.com/batazor/hcfc
 COPY . .
-RUN CGO_ENABLED=0 GOOS=linux \
+RUN CGO_ENABLED=0 \
+  GOOS=linux \
   go build \
   -a \
-  -ldflags "-X main.CI_COMMIT_TAG=$CI_COMMIT_TAG" \
-  -installsuffix cgo -o hcfc ./cmd/main.go
+  -ldflags "-w -s -X main.CI_COMMIT_TAG=$CI_COMMIT_TAG" \
+  -installsuffix cgo \
+  -o hcfc ./cmd/hcfc
 
-FROM alpine:latest
+FROM scratch
 
-RUN addgroup -S 997 && adduser -S -g 997 997
-USER 997
+USER 10001
 
 WORKDIR /app/
 COPY --from=builder /go/src/github.com/batazor/hcfc/hcfc .

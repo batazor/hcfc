@@ -78,6 +78,7 @@ ingress:
 #### v1.1.1 dogfooding
 
 - [ ] Use chart generator :-)
+- [ ] Generate `values.yaml`
 
 #### v1.2 Support Giltab
 
