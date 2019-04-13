@@ -78,10 +78,41 @@ ingress:
 
 #### v1.1.1 dogfooding
 
-- [ ] Use chart generator :-)
+- [x] Use chart generator :-)
 - [x] Generate `values.yaml`
 
-#### v1.2 Support Giltab
+#### v1.2.0 Improve
+
+- [ ] Generate `README.md`
+  - [ ] description
+  - [ ] table with ENV variable (name, default value)
+- [ ] Skip comments in template file
+- [ ] Improve Ingress template
+
+### v1.3.0
+
+- [ ] Add linters
+- [ ] Use k8s/helm structure
+
+### v1.3.1
+
+- [ ] Add test create `deployment.yaml`
+
+### v1.3.2
+
+- [ ] Add test create `deployment`
+- [ ] Add test create `service`
+- [ ] Add test create `values.yaml`
+
+#### v1.4.0 Monitoring
+
+- [ ] Support prometheus
+  - [ ] Add template
+    - [ ] Ping
+    - [ ] healthcheck
+- [ ] Dashboard for grafana
+
+#### v2.0.0 Support Giltab
 
 - [ ] Add command `init`
   - [ ] Add type `GitLab`
@@ -99,31 +130,19 @@ ingress:
 - [ ] Support ENV
 - [ ] Add test example
 
-#### v1.2.1 dogfooding
+#### v2.0.1 dogfooding
 
 - [ ] Use gitlab generator :-)
 
-#### v1.3 Support GitHub Action
+#### v3.0.0 Support GitHub Action
 
 - [ ] Update command `init`
   - [ ] Add type `GitHub`
 
-#### v1.3.1 dogfooding
+#### v3.0.1 dogfooding
 
 - [ ] Use gitlab generator :-)
 
-#### v1.4
+#### v4.0.0
 
 - [ ] Support dependencies chart
-
-#### v1.5 Monitoring
-
-- [ ] Support prometheus
-  - [ ] Add template
-    - [ ] Ping
-    - [ ] healthcheck
-- [ ] Dashboard for grafana
-
-#### v2.0
-
-- [ ] Interactive create config `deploy.yaml`
