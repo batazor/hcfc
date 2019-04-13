@@ -9,6 +9,7 @@ type BuildConfig struct {
 }
 
 type Template struct {
+	Filename string
 	Path     string
 	Output   string
 	Values   Project
@@ -31,6 +32,7 @@ type Chart struct {
 }
 
 type Deployment struct {
+	Name         string
 	Replicas     int
 	Image        Image
 	Resources    interface{}

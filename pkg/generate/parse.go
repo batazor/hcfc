@@ -7,6 +7,7 @@ import (
 	"io/ioutil"
 	"k8s.io/helm/pkg/engine"
 	"os"
+	"strconv"
 	"strings"
 	"text/template"
 )
@@ -30,23 +31,27 @@ func Build(config BuildConfig) error {
 }
 
 func BuildFile(cfg BuildConfig) error {
+	cfg.Template.Filename = "Chart.yaml"
 	if err := createFile(cfg, "Chart.yaml", cfg.Template.Values.Chart); err != nil {
 		return err
 	}
 
+	cfg.Template.Filename = "values.yaml"
 	if err := createFile(cfg, "values.yaml", cfg.Template.Values.Chart); err != nil {
 		return err
 	}
 
+	cfg.Template.Filename = "templates/NOTES.txt"
 	if err := createFile(cfg, "templates/NOTES.txt", cfg.Template.Values.Chart); err != nil {
 		return err
 	}
 
-	if err := createFile(cfg, "templates/.helmignore", cfg.Template.Values.Chart); err != nil {
+	cfg.Template.Filename = ".helmignore"
+	if err := createFile(cfg, ".helmignore", cfg.Template.Values.Chart); err != nil {
 		return err
 	}
 
-	for _, deploymentConfig := range cfg.Template.Values.Deployment {
+	for index, deploymentConfig := range cfg.Template.Values.Deployment {
 		cnf := struct {
 			Chart
 			Deployment
@@ -55,12 +60,13 @@ func BuildFile(cfg BuildConfig) error {
 			deploymentConfig,
 		}
 
+		cfg.Template.Filename = strings.Join([]string{"templates/deployment-", strconv.Itoa(index), ".yaml"}, "")
 		if err := createFile(cfg, "templates/deployment.yaml", cnf); err != nil {
 			return err
 		}
 	}
 
-	for _, serviceConfig := range cfg.Template.Values.Service {
+	for index, serviceConfig := range cfg.Template.Values.Service {
 		cnf := struct {
 			Chart
 			Service
@@ -69,12 +75,13 @@ func BuildFile(cfg BuildConfig) error {
 			serviceConfig,
 		}
 
+		cfg.Template.Filename = strings.Join([]string{"templates/service-", strconv.Itoa(index), ".yaml"}, "")
 		if err := createFile(cfg, "templates/service.yaml", cnf); err != nil {
 			return err
 		}
 	}
 
-	for _, ingressConfig := range cfg.Template.Values.Ingress {
+	for index, ingressConfig := range cfg.Template.Values.Ingress {
 		cnf := struct {
 			Chart
 			Ingress
@@ -83,6 +90,7 @@ func BuildFile(cfg BuildConfig) error {
 			ingressConfig,
 		}
 
+		cfg.Template.Filename = strings.Join([]string{"templates/ingress-", strconv.Itoa(index), ".yaml"}, "")
 		if err := createFile(cfg, "templates/ingress.yaml", cnf); err != nil {
 			return err
 		}
@@ -91,9 +99,9 @@ func BuildFile(cfg BuildConfig) error {
 	return nil
 }
 
-func createFile(cfg BuildConfig, nameFile string, values interface{}) error {
+func createFile(cfg BuildConfig, templateName string, values interface{}) error {
 	// Get template file
-	err, template := cfg.Templates.Get(nameFile)
+	err, template := cfg.Templates.Get(templateName)
 	if err != nil {
 		return err
 	}
@@ -104,7 +112,7 @@ func createFile(cfg BuildConfig, nameFile string, values interface{}) error {
 	}
 
 	// Create path to file
-	s := []string{cfg.Template.Output, nameFile}
+	s := []string{cfg.Template.Output, cfg.Template.Filename}
 	pathOutput := strings.Join(s, "/")
 	//fmt.Println("pathOutput", pathOutput)
 
@@ -115,7 +123,6 @@ func createFile(cfg BuildConfig, nameFile string, values interface{}) error {
 		s = append(s, v)
 	}
 	dirOutput := strings.Join(s, "/")
-	fmt.Println("dirOutput", dirOutput)
 	if _, err := os.Stat(dirOutput); os.IsNotExist(err) {
 		os.MkdirAll(dirOutput, os.ModePerm)
 	}

@@ -4,7 +4,25 @@ chart:
   version: 0.1.0
   apiversion: ""
   appversion: ""
-deployment: []
+deployment:
+- replicas: 0
+  image:
+    repository: alpine
+    tag: 3.6
+    pullpolicy: ""
+  resources: null
+  nodeselector: null
+  affinity: null
+  tolerations: null
+- replicas: 0
+  image:
+    repository: alpine
+    tag: 3.8
+    pullpolicy: ""
+  resources: null
+  nodeselector: null
+  affinity: null
+  tolerations: null
 service:
 - type: ClusterIP
   port: 0

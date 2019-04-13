@@ -7,6 +7,7 @@ WORKDIR /go/src/github.com/batazor/hcfc
 COPY . .
 RUN CGO_ENABLED=0 \
   GOOS=linux \
+  GOARCH=amd64 \
   go build \
   -a \
   -ldflags "-w -s -X main.CI_COMMIT_TAG=$CI_COMMIT_TAG" \
