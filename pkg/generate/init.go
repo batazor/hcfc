@@ -150,6 +150,13 @@ func (p *Project) setDeploymentConfig() error {
 	// Init deployment
 	newDeployment := Deployment{}
 
+	// Set metadata
+	newDeployment.Metadata.Labels = map[string]string{}
+	newDeployment.Metadata.Labels["app.kubernetes.io/name"] = p.Chart.Name
+	newDeployment.Metadata.Labels["app.kubernetes.io/instance"] = "{{ .Release.Name }}"
+	newDeployment.Metadata.Labels["app.kubernetes.io/managed-by"] = "Tiller"
+	newDeployment.Metadata.Labels["helm.sh/chart"] = fmt.Sprintf("%s-%s", p.Chart.Name, p.Chart.Version)
+
 	// Set repository
 	prompt := promptui.Prompt{
 		Label:   "Repository",
@@ -212,23 +219,30 @@ func (p *Project) setServiceConfig() error {
 	}
 	newService.Type = typeService
 
-	// Create port
-	isAddResource := p.isConfirm("Add a port")
-	fmt.Println("isAddResource", isAddResource)
-	if isAddResource == nil {
-		for {
-			port, err := p.addPort()
-			if err != nil {
-				return err
-			}
+	// Binding to deployment
+	listDeployment := []string{}
+	for index, _ := range p.Deployment {
+		listDeployment = append(listDeployment, fmt.Sprintf("deployment-%s", strconv.Itoa(index)))
+	}
+	bindingToDeployment := promptui.Select{
+		Label: "Binding to deployment",
+		Items: listDeployment,
+	}
+	_, binding, err := bindingToDeployment.Run()
+	if err != nil {
+		return err
+	}
 
-			newService.Ports = append(newService.Ports, port)
+	indexDeployment, _ := strconv.Atoi(binding)
+	deployment := p.Deployment[indexDeployment]
 
-			isAddResource = p.isConfirm("Add a port")
-			if isAddResource != nil {
-				break
-			}
-		}
+	// binding metadata
+	newService.Metadata.Labels = deployment.Metadata.Labels
+	// binding selector
+	newService.Selector = deployment.Metadata.Labels
+	// binding port
+	for _, port := range deployment.Ports {
+		newService.Ports = append(newService.Ports, port)
 	}
 
 	// Append new service

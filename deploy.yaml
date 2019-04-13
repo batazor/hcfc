@@ -5,7 +5,13 @@ chart:
   apiversion: ""
   appversion: ""
 deployment:
-- name: ""
+- metadata:
+    name: ""
+    labels:
+      app.kubernetes.io/instance: '{{ .Release.Name }}'
+      app.kubernetes.io/managed-by: Tiller
+      app.kubernetes.io/name: hcfc
+      helm.sh/chart: hcfc-0.1.0
   replicas: 0
   image:
     repository: alpine
@@ -15,15 +21,32 @@ deployment:
   - name: http
     port: 80
     protocol: TCP
+  - name: test
+    port: 80
+    protocol: TCP
   resources: null
   nodeselector: null
   affinity: null
   tolerations: null
 service:
-- type: NodePort
+- metadata:
+    name: ""
+    labels:
+      app.kubernetes.io/instance: '{{ .Release.Name }}'
+      app.kubernetes.io/managed-by: Tiller
+      app.kubernetes.io/name: hcfc
+      helm.sh/chart: hcfc-0.1.0
+  type: ClusterIP
   ports:
   - name: http
     port: 80
     protocol: TCP
-  selector: {}
+  - name: test
+    port: 80
+    protocol: TCP
+  selector:
+    app.kubernetes.io/instance: '{{ .Release.Name }}'
+    app.kubernetes.io/managed-by: Tiller
+    app.kubernetes.io/name: hcfc
+    helm.sh/chart: hcfc-0.1.0
 ingress: []

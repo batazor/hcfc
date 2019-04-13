@@ -32,7 +32,7 @@ type Chart struct {
 }
 
 type Deployment struct {
-	Name         string
+	Metadata     Metadata
 	Replicas     int
 	Image        Image
 	Ports        []Port
@@ -40,6 +40,11 @@ type Deployment struct {
 	NodeSelector interface{}
 	Affinity     interface{}
 	Tolerations  interface{}
+}
+
+type Metadata struct {
+	Name   string
+	Labels map[string]string
 }
 
 type Image struct {
@@ -55,6 +60,7 @@ type Port struct {
 }
 
 type Service struct {
+	Metadata Metadata
 	Type     string
 	Ports    []Port
 	Selector map[string]string

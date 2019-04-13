@@ -1,12 +1,11 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{.Chart.Name}}
+  name: {{default .Chart.Name .Deployment.Metadata.Name }}
   labels:
-    app.kubernetes.io/name: {{.Chart.Name}}
-    app.kubernetes.io/instance: {{ ignore ".Release.Name" }}
-    app.kubernetes.io/managed-by: Tiller
-    helm.sh/chart: {{ ignore ".Chart.Name" }}-{{ ignore ".Chart.Version" }}
+  {{- range $key, $value := .Deployment.Metadata.Labels }}
+    {{ $key }}: {{ $value }}
+  {{- end }}
 spec:
   replicas: {{ text "{{ .Values.Deployment[" }}{{ default 0 .Index }}{{ text "].Replicas }}" }}
   revisionHistoryLimit: 2

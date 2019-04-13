@@ -3,10 +3,9 @@ kind: Service
 metadata:
   name: {{.Chart.Name}}
   labels:
-    app.kubernetes.io/name: {{.Chart.Name}}
-    app.kubernetes.io/instance: {{ ignore ".Release.Name" }}
-    app.kubernetes.io/managed-by: Tiller
-    helm.sh/chart: {{ ignore ".Chart.Name" }}-{{ ignore ".Chart.Version" }}
+  {{- range $key, $value := .Service.Metadata.Labels }}
+    {{ $key }}: {{ $value }}
+  {{- end }}
 spec:
   type: {{ .Service.Type }}
   ports:
@@ -16,5 +15,6 @@ spec:
     name: {{ $value.Name }}
   {{- end }}
   selector:
-    app.kubernetes.io/name: {{.Chart.Name}}
-    app.kubernetes.io/instance: {{.Chart.Name}}
+  {{- range $key, $value := .Service.Metadata.Labels }}
+    {{ $key }}: {{ $value }}
+  {{- end }}
