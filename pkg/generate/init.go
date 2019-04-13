@@ -23,27 +23,51 @@ func (p *Project) Init() error {
 	// Create deployment
 	err = p.isConfirm("Create a new deployment")
 	if err == nil {
-		errDeployment := p.setDeploymentConfig()
-		if errDeployment != nil {
-			return errDeployment
+		for {
+			errDeployment := p.setDeploymentConfig()
+			if errDeployment != nil {
+				return errDeployment
+			}
+
+			isAddResource := p.isConfirm("Add a deployment")
+			if isAddResource != nil {
+				break
+			}
+
 		}
 	}
 
 	// Create service
 	err = p.isConfirm("Create a new service")
 	if err == nil {
-		errService := p.setServiceConfig()
-		if errService != nil {
-			return errService
+		for {
+			errService := p.setServiceConfig()
+			if errService != nil {
+				return errService
+			}
+
+			isAddResource := p.isConfirm("Add a service")
+			if isAddResource != nil {
+				break
+			}
+
 		}
 	}
 
 	// Create ingress
 	err = p.isConfirm("Create a new ingress")
 	if err == nil {
-		errIngress := p.setIngressConfig()
-		if errIngress != nil {
-			return errIngress
+		for {
+			errIngress := p.setIngressConfig()
+			if errIngress != nil {
+				return errIngress
+			}
+
+			isAddResource := p.isConfirm("Add a ingress")
+			if isAddResource != nil {
+				break
+			}
+
 		}
 	}
 
