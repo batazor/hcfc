@@ -55,8 +55,9 @@ type Port struct {
 }
 
 type Service struct {
-	Type string
-	Port int
+	Type     string
+	Ports    []Port
+	Selector map[string]string
 }
 
 type Ingress struct {

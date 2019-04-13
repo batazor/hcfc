@@ -4,16 +4,17 @@ metadata:
   name: {{.Chart.Name}}
   labels:
     app.kubernetes.io/name: {{.Chart.Name}}
-    app.kubernetes.io/instance: {{.Chart.Name}}
+    app.kubernetes.io/instance: {{ ignore ".Release.Name" }}
     app.kubernetes.io/managed-by: Tiller
-    helm.sh/chart: {{.Chart.Name}}-{{.Chart.Version}}
+    helm.sh/chart: {{ ignore ".Chart.Name" }}-{{ ignore ".Chart.Version" }}
 spec:
   type: {{ .Service.Type }}
   ports:
-    - port: {{ .Service.Port }}
-      targetPort: http
-      protocol: TCP
-      name: http
+  {{- range $key, $value := .Service.Ports }}
+  - port: {{ $value.Port }}
+    targetPort: {{ $value.Name }}
+    name: {{ $value.Name }}
+  {{- end }}
   selector:
     app.kubernetes.io/name: {{.Chart.Name}}
     app.kubernetes.io/instance: {{.Chart.Name}}

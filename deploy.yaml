@@ -20,6 +20,10 @@ deployment:
   affinity: null
   tolerations: null
 service:
-- type: ClusterIP
-  port: 0
+- type: NodePort
+  ports:
+  - name: http
+    port: 80
+    protocol: TCP
+  selector: {}
 ingress: []

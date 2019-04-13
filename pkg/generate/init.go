@@ -177,46 +177,11 @@ func (p *Project) setDeploymentConfig() error {
 	fmt.Println("isAddResource", isAddResource)
 	if isAddResource == nil {
 		for {
-			// Set portName
-			setPortName := promptui.Prompt{
-				Label:   "Port name",
-				Default: "http",
-			}
-			portName, err := setPortName.Run()
+			port, err := p.addPort()
 			if err != nil {
 				return err
 			}
 
-			// Set port
-			setPortInt := promptui.Prompt{
-				Label:   "Port",
-				Default: "80",
-			}
-			port1, err := setPortInt.Run()
-			if err != nil {
-				return err
-			}
-			portInt1, err := strconv.Atoi(port1)
-			if err != nil {
-				return err
-			}
-
-			// Set protocol
-			protocol := promptui.Select{
-				Label: "protocol",
-				Items: []string{"TCP", "UDP"},
-			}
-			_, protocolPort, err := protocol.Run()
-			if err != nil {
-				return err
-			}
-			fmt.Println("protocolPort", protocolPort)
-
-			port := Port{
-				portName,
-				portInt1,
-				protocolPort,
-			}
 			newDeployment.Ports = append(newDeployment.Ports, port)
 
 			isAddResource = p.isConfirm("Add a port")
@@ -237,20 +202,80 @@ func (p *Project) setServiceConfig() error {
 	newService := Service{}
 
 	// Set type
-	prompt := promptui.Prompt{
-		Label:   "Type",
-		Default: "ClusterIP",
+	setTypeService := promptui.Select{
+		Label: "Type",
+		Items: []string{"ClusterIP", "NodePort"},
 	}
-	typeService, err := prompt.Run()
+	_, typeService, err := setTypeService.Run()
 	if err != nil {
 		return err
 	}
 	newService.Type = typeService
 
+	// Create port
+	isAddResource := p.isConfirm("Add a port")
+	fmt.Println("isAddResource", isAddResource)
+	if isAddResource == nil {
+		for {
+			port, err := p.addPort()
+			if err != nil {
+				return err
+			}
+
+			newService.Ports = append(newService.Ports, port)
+
+			isAddResource = p.isConfirm("Add a port")
+			if isAddResource != nil {
+				break
+			}
+		}
+	}
+
 	// Append new service
 	p.Service = append(p.Service, newService)
 
 	return nil
+}
+
+func (p *Project) addPort() (Port, error) {
+	var err error
+	port := Port{}
+
+	// Set portName
+	setPortName := promptui.Prompt{
+		Label:   "Port name",
+		Default: "http",
+	}
+	port.Name, err = setPortName.Run()
+	if err != nil {
+		return port, err
+	}
+
+	// Set port
+	setPortInt := promptui.Prompt{
+		Label:   "Port",
+		Default: "80",
+	}
+	port1, err := setPortInt.Run()
+	if err != nil {
+		return port, err
+	}
+	port.Port, err = strconv.Atoi(port1)
+	if err != nil {
+		return port, err
+	}
+
+	// Set protocol
+	protocol := promptui.Select{
+		Label: "protocol",
+		Items: []string{"TCP", "UDP"},
+	}
+	_, port.Protocol, err = protocol.Run()
+	if err != nil {
+		return port, err
+	}
+
+	return port, nil
 }
 
 func (p *Project) setIngressConfig() error {
