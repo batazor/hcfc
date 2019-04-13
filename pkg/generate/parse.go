@@ -37,7 +37,7 @@ func BuildFile(cfg BuildConfig) error {
 	}
 
 	cfg.Template.Filename = "values.yaml"
-	if err := createFile(cfg, "values.yaml", cfg.Template.Values.Chart); err != nil {
+	if err := createValuesFile(cfg, "values.yaml", cfg.Template.Values); err != nil {
 		return err
 	}
 
@@ -60,6 +60,7 @@ func BuildFile(cfg BuildConfig) error {
 			deploymentConfig,
 		}
 
+		cnf.Chart.Name = strings.Join([]string{cnf.Chart.Name, "-", strconv.Itoa(index)}, "")
 		cfg.Template.Filename = strings.Join([]string{"templates/deployment-", strconv.Itoa(index), ".yaml"}, "")
 		if err := createFile(cfg, "templates/deployment.yaml", cnf); err != nil {
 			return err
@@ -75,6 +76,7 @@ func BuildFile(cfg BuildConfig) error {
 			serviceConfig,
 		}
 
+		cnf.Chart.Name = strings.Join([]string{cnf.Chart.Name, "-", strconv.Itoa(index)}, "")
 		cfg.Template.Filename = strings.Join([]string{"templates/service-", strconv.Itoa(index), ".yaml"}, "")
 		if err := createFile(cfg, "templates/service.yaml", cnf); err != nil {
 			return err
@@ -90,10 +92,38 @@ func BuildFile(cfg BuildConfig) error {
 			ingressConfig,
 		}
 
+		cnf.Chart.Name = strings.Join([]string{cnf.Chart.Name, "-", strconv.Itoa(index)}, "")
 		cfg.Template.Filename = strings.Join([]string{"templates/ingress-", strconv.Itoa(index), ".yaml"}, "")
 		if err := createFile(cfg, "templates/ingress.yaml", cnf); err != nil {
 			return err
 		}
+	}
+
+	return nil
+}
+
+func createValuesFile(cfg BuildConfig, templateName string, values interface{}) error {
+	response, err := yaml.Marshal(&values)
+
+	// Create path to file
+	s := []string{cfg.Template.Output, cfg.Template.Filename}
+	pathOutput := strings.Join(s, "/")
+	//fmt.Println("pathOutput", pathOutput)
+
+	// Check directory
+	s = []string{}
+	path := strings.Split(pathOutput, "/")
+	for _, v := range path[:len(path)-1] {
+		s = append(s, v)
+	}
+	dirOutput := strings.Join(s, "/")
+	if _, err := os.Stat(dirOutput); os.IsNotExist(err) {
+		os.MkdirAll(dirOutput, os.ModePerm)
+	}
+
+	err = ioutil.WriteFile(pathOutput, []byte(response), 0644)
+	if err != nil {
+		return err
 	}
 
 	return nil
