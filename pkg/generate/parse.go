@@ -55,14 +55,22 @@ func BuildFile(cfg BuildConfig) error {
 		cnf := struct {
 			Chart
 			Deployment
+			Index int
 		}{
 			cfg.Template.Values.Chart,
 			deploymentConfig,
+			index,
+		}
+		templateName := "templates/deployment.yaml"
+
+		if len(cfg.Template.Values.Deployment) > 1 {
+			cnf.Chart.Name = strings.Join([]string{cnf.Chart.Name, "-", strconv.Itoa(index)}, "")
+			cfg.Template.Filename = strings.Join([]string{"templates/deployment-", strconv.Itoa(index), ".yaml"}, "")
+		} else {
+			cfg.Template.Filename = templateName
 		}
 
-		cnf.Chart.Name = strings.Join([]string{cnf.Chart.Name, "-", strconv.Itoa(index)}, "")
-		cfg.Template.Filename = strings.Join([]string{"templates/deployment-", strconv.Itoa(index), ".yaml"}, "")
-		if err := createFile(cfg, "templates/deployment.yaml", cnf); err != nil {
+		if err := createFile(cfg, templateName, cnf); err != nil {
 			return err
 		}
 	}
@@ -71,14 +79,22 @@ func BuildFile(cfg BuildConfig) error {
 		cnf := struct {
 			Chart
 			Service
+			Index int
 		}{
 			cfg.Template.Values.Chart,
 			serviceConfig,
+			index,
+		}
+		templateName := "templates/service.yaml"
+
+		if len(cfg.Template.Values.Service) > 1 {
+			cnf.Chart.Name = strings.Join([]string{cnf.Chart.Name, "-", strconv.Itoa(index)}, "")
+			cfg.Template.Filename = strings.Join([]string{"templates/service-", strconv.Itoa(index), ".yaml"}, "")
+		} else {
+			cfg.Template.Filename = templateName
 		}
 
-		cnf.Chart.Name = strings.Join([]string{cnf.Chart.Name, "-", strconv.Itoa(index)}, "")
-		cfg.Template.Filename = strings.Join([]string{"templates/service-", strconv.Itoa(index), ".yaml"}, "")
-		if err := createFile(cfg, "templates/service.yaml", cnf); err != nil {
+		if err := createFile(cfg, templateName, cnf); err != nil {
 			return err
 		}
 	}
@@ -87,14 +103,22 @@ func BuildFile(cfg BuildConfig) error {
 		cnf := struct {
 			Chart
 			Ingress
+			Index int
 		}{
 			cfg.Template.Values.Chart,
 			ingressConfig,
+			index,
+		}
+		templateName := "templates/ingress.yaml"
+
+		if len(cfg.Template.Values.Ingress) > 1 {
+			cnf.Chart.Name = strings.Join([]string{cnf.Chart.Name, "-", strconv.Itoa(index)}, "")
+			cfg.Template.Filename = strings.Join([]string{"templates/ingress-", strconv.Itoa(index), ".yaml"}, "")
+		} else {
+			cfg.Template.Filename = templateName
 		}
 
-		cnf.Chart.Name = strings.Join([]string{cnf.Chart.Name, "-", strconv.Itoa(index)}, "")
-		cfg.Template.Filename = strings.Join([]string{"templates/ingress-", strconv.Itoa(index), ".yaml"}, "")
-		if err := createFile(cfg, "templates/ingress.yaml", cnf); err != nil {
+		if err := createFile(cfg, templateName, cnf); err != nil {
 			return err
 		}
 	}
@@ -173,6 +197,7 @@ func ExecuteTemplates(file string, values interface{}) (error, string) {
 	FuncMap := engine.FuncMap()
 
 	FuncMap["ignore"] = Ignore
+	FuncMap["text"] = Text
 
 	tpl, err := template.New(newTemplate).Funcs(FuncMap).Parse(file)
 	if err != nil {
@@ -190,4 +215,8 @@ func ExecuteTemplates(file string, values interface{}) (error, string) {
 
 func Ignore(v interface{}) string {
 	return strings.Join([]string{"{{", v.(string), "}}"}, " ")
+}
+
+func Text(v interface{}) string {
+	return strings.Join([]string{v.(string)}, " ")
 }

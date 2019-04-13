@@ -34,7 +34,8 @@ ingress:
 
 ### Function template
 
-1. ignore
+1. ignore `{{ ignore .Values.Cat }} => {{ .Values.Cat }}`
+1. text `{{ text .Values.Cat }} => .Values.Cat`
 1. toToml
 1. toYaml
 1. fromYaml
@@ -78,7 +79,7 @@ ingress:
 #### v1.1.1 dogfooding
 
 - [ ] Use chart generator :-)
-- [ ] Generate `values.yaml`
+- [x] Generate `values.yaml`
 
 #### v1.2 Support Giltab
 
