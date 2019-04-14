@@ -44,24 +44,32 @@
   - [ ] Dockerfile
   - [ ] GitHub Action
 
-### v1.3.0
+### v1.3.0 Add best practices
 
 - [ ] Add more badges ;-)
 - [ ] Add linters
 - [ ] Check linter on github actions
 - [ ] Use k8s/helm structure
 
-### v1.3.1
+### v1.3.1 Add first test
 
 - [ ] Add test create `deployment.yaml`
+- [ ] Add coverage
+- [ ] Add github action
 
-### v1.3.2
+### v1.3.2 Add more test
 
 - [ ] Add test create `deployment`
 - [ ] Add test create `service`
 - [ ] Add test create `values.yaml`
 
-#### v1.4.0 Monitoring
+#### v1.4.0 Improve docs
+
+- [ ] add example for command
+  - [ ] generate
+  - [ ] init
+
+#### v1.5.0 Monitoring
 
 - [ ] Support prometheus
   - [ ] Add template
