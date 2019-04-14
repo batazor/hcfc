@@ -45,6 +45,7 @@ action "release darwin/amd64" {
   env = {
     GOOS = "darwin"
     GOARCH = "amd64"
+    CMD_PATH = "cmd/hcfc/main.go"
   }
   secrets = ["GITHUB_TOKEN"]
 }
@@ -54,6 +55,7 @@ action "release windows/amd64" {
   env = {
     GOOS = "windows"
     GOARCH = "amd64"
+    CMD_PATH = "cmd/hcfc/main.go"
   }
   secrets = ["GITHUB_TOKEN"]
 }
@@ -63,6 +65,7 @@ action "release linux/amd64" {
   env = {
     GOOS = "linux"
     GOARCH = "amd64"
+    CMD_PATH = "cmd/hcfc/main.go"
   }
   secrets = ["GITHUB_TOKEN"]
 }
