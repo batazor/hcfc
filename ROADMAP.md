@@ -46,7 +46,9 @@
 
 ### v1.3.0
 
+- [ ] Add more badges ;-)
 - [ ] Add linters
+- [ ] Check linter on github actions
 - [ ] Use k8s/helm structure
 
 ### v1.3.1
