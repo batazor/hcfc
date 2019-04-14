@@ -50,6 +50,7 @@
   - [ ] description
   - [ ] table with ENV variable (name, default value)
 - [ ] Skip comments in template file
+- [ ] Add comment to `values.yaml`
 - [ ] Improve Ingress template
 - [ ] Use ENV CI_COMMIT_TAG
   - [ ] Dockerfile
