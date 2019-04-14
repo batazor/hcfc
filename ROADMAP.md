@@ -35,6 +35,13 @@
 
 #### v1.2.0 Improve
 
+- [ ] Improve `Charts.yaml`
+  - [ ] Add keywords
+  - [ ] Add home
+  - [ ] Add sources
+  - [ ] Add mainteiners
+    - [ ] Add support `MAINTEINERS.md`
+  - [ ] Add default version for apiVersion/appVersion
 - [ ] Generate `README.md`
   - [ ] description
   - [ ] table with ENV variable (name, default value)
@@ -71,11 +78,22 @@
 
 #### v1.5.0 Monitoring
 
+- [ ] Add healtcheck
+  - [ ] add http template (select)
+    - [ ] add binding to port
+- [ ] Add leavecheck
+  - [ ] add http template (select)
+    - [ ] add binding to port
 - [ ] Support prometheus
   - [ ] Add template
     - [ ] Ping
     - [ ] healthcheck
 - [ ] Dashboard for grafana
+
+#### v1.6.0 Improve deployment
+
+- [ ] add resource
+- [ ] add nodeSelector
 
 #### v2.0.0 Support Giltab
 
@@ -111,3 +129,7 @@
 #### v4.0.0
 
 - [ ] Support dependencies chart
+
+#### v5.0.0
+
+- [ ] Add command `edit` for edit value `deploy.yaml`
