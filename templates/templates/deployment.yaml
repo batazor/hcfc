@@ -7,7 +7,7 @@ metadata:
     {{ $key }}: {{ $value }}
   {{- end }}
 spec:
-  replicas: {{ text "{{ .Values.Deployment[" }}{{ default 0 .Index }}{{ text "].Replicas }}" }}
+  replicas: {{ text "{{ ( index .Values.deployment " }}{{ default 0 .Index }}{{ text ").replicas }}" }}
   revisionHistoryLimit: 2
   selector:
     matchLabels:
@@ -21,7 +21,7 @@ spec:
     spec:
       containers:
       - name: {{.Chart.Name}}
-        image: {{ text "{{ .Values.Deployment[" }}{{ default 0 .Index }}{{ text "].Image.Repository }}" }}:{{ text "{{ .Values.Deployment[" }}{{ default 0 .Index }}{{ text "].Image.Tag }}" }}
+        image: {{ text "{{ ( index .Values.deployment " }}{{ default 0 .Index }}{{ text ").image.repository }}" }}:{{ text "{{ (index .Values.deployment " }}{{ default 0 .Index }}{{ text ").image.tag }}" }}
         enableServiceLinks: false
         ports:
         {{- range $key, $value := .Deployment.Ports }}

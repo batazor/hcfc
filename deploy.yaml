@@ -21,9 +21,6 @@ deployment:
   - name: http
     port: 80
     protocol: TCP
-  - name: test
-    port: 80
-    protocol: TCP
   resources: null
   nodeselector: null
   affinity: null
@@ -39,9 +36,6 @@ service:
   type: ClusterIP
   ports:
   - name: http
-    port: 80
-    protocol: TCP
-  - name: test
     port: 80
     protocol: TCP
   selector:

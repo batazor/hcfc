@@ -33,9 +33,9 @@
 - [x] Use chart generator :-)
 - [x] Generate `values.yaml`
 
-#### v1.1.2 Fix syntax array for templates
+#### v1.1.3 Fix syntax array for templates
 
-- [ ] From `{{ .Values.Deployment[0].Replicas }}` to `{{ (index .Values.Deployment 0).Replicas }}`
+- [x] From `{{ .Values.Deployment[0].Replicas }}` to `{{ (index .Values.Deployment 0).Replicas }}`
 
 #### v1.2.0 Improve
 
