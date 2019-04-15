@@ -39,6 +39,8 @@
 
 #### v1.2.0 Improve
 
+- [ ] Improve `deployment.yaml`
+  - [ ] Add ENV variable (range)
 - [ ] Improve `Charts.yaml`
   - [ ] Add keywords
   - [ ] Add home
