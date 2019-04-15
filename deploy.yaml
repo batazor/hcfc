@@ -12,35 +12,18 @@ deployment:
       app.kubernetes.io/managed-by: Tiller
       app.kubernetes.io/name: hcfc
       helm.sh/chart: hcfc-0.1.0
+  env:
+    test: test
+    ttrr: test
   replicas: 0
   image:
     repository: alpine
     tag: latest
     pullpolicy: ""
-  ports:
-  - name: http
-    port: 80
-    protocol: TCP
+  ports: []
   resources: null
   nodeselector: null
   affinity: null
   tolerations: null
-service:
-- metadata:
-    name: ""
-    labels:
-      app.kubernetes.io/instance: '{{ .Release.Name }}'
-      app.kubernetes.io/managed-by: Tiller
-      app.kubernetes.io/name: hcfc
-      helm.sh/chart: hcfc-0.1.0
-  type: ClusterIP
-  ports:
-  - name: http
-    port: 80
-    protocol: TCP
-  selector:
-    app.kubernetes.io/instance: '{{ .Release.Name }}'
-    app.kubernetes.io/managed-by: Tiller
-    app.kubernetes.io/name: hcfc
-    helm.sh/chart: hcfc-0.1.0
+service: []
 ingress: []

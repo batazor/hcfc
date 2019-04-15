@@ -179,9 +179,40 @@ func (p *Project) setDeploymentConfig() error {
 	}
 	newDeployment.Image.Tag = tag
 
+	// Create ENV
+	newDeployment.ENV = map[string]interface{}{}
+	isAddENV := p.isConfirm("Add a ENV")
+	if isAddENV == nil {
+		for {
+			setNameENV := promptui.Prompt{
+				Label:   "Name ENV",
+				Default: "test",
+			}
+			nameENV, err := setNameENV.Run()
+			if err != nil {
+				return err
+			}
+
+			setValueENV := promptui.Prompt{
+				Label:   fmt.Sprintf("Value ENV (name: %s)", nameENV),
+				Default: "test",
+			}
+			valueENV, err := setValueENV.Run()
+			if err != nil {
+				return err
+			}
+
+			newDeployment.ENV[nameENV] = valueENV
+
+			isAddENV = p.isConfirm("Add a ENV")
+			if isAddENV != nil {
+				break
+			}
+		}
+	}
+
 	// Create port
 	isAddResource := p.isConfirm("Add a port")
-	fmt.Println("isAddResource", isAddResource)
 	if isAddResource == nil {
 		for {
 			port, err := p.addPort()
@@ -221,7 +252,7 @@ func (p *Project) setServiceConfig() error {
 
 	// Binding to deployment
 	listDeployment := []string{}
-	for index, _ := range p.Deployment {
+	for index := range p.Deployment {
 		listDeployment = append(listDeployment, fmt.Sprintf("deployment-%s", strconv.Itoa(index)))
 	}
 	bindingToDeployment := promptui.Select{

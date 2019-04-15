@@ -33,6 +33,7 @@ type Chart struct {
 
 type Deployment struct {
 	Metadata     Metadata
+	ENV          map[string]interface{}
 	Replicas     int
 	Image        Image
 	Ports        []Port
