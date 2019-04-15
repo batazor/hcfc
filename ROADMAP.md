@@ -33,7 +33,7 @@
 - [x] Use chart generator :-)
 - [x] Generate `values.yaml`
 
-#### v1.1.3 Fix syntax array for templates
+#### v1.1.4 Fix syntax array for templates
 
 - [x] From `{{ .Values.Deployment[0].Replicas }}` to `{{ (index .Values.Deployment 0).Replicas }}`
 
