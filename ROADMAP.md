@@ -42,6 +42,12 @@
 - [x] Improve `deployment.yaml`
   - [x] Add ENV variable (range)
 - [x] Add support secret (simple)
+- [ ] Improve `ingress.yaml`
+  - [ ] Add TLS secret
+  - [ ] Add annotation (import from ngix-ingress?)
+  - [ ] Add domain
+    - [ ] Add patch (route,URL)
+    - [ ] Add backend (from service)
 - [ ] Improve `Charts.yaml`
   - [ ] Add keywords
   - [ ] Add home

@@ -18,22 +18,42 @@ deployment:
     repository: alpine
     tag: latest
     pullpolicy: ""
-  ports: []
+  ports:
+    - name: http
+      port: 80
+      protocol: TCP
   resources: null
   nodeselector: null
   affinity: null
   tolerations: null
-service: []
-ingress: []
-secret:
-  - name: hcfc
-    metadata:
+service:
+  - metadata:
       name: ""
       labels:
         app.kubernetes.io/instance: '{{ .Release.Name }}'
         app.kubernetes.io/managed-by: Tiller
         app.kubernetes.io/name: hcfc
         helm.sh/chart: hcfc-0.1.0
+    type: ClusterIP
+    ports:
+      - name: http
+        port: 80
+        protocol: TCP
+    selector:
+      app.kubernetes.io/instance: '{{ .Release.Name }}'
+      app.kubernetes.io/managed-by: Tiller
+      app.kubernetes.io/name: hcfc
+      helm.sh/chart: hcfc-0.1.0
+ingress:
+  - enable: true
+    domain: example.com
+secret:
+  - metadata:
+      name: hcfc
+      labels:
+        app.kubernetes.io/instance: '{{ .Release.Name }}'
+        app.kubernetes.io/managed-by: Tiller
+        app.kubernetes.io/name: hcfc
+        helm.sh/chart: hcfc-0.1.0
     data:
-      hh.t: secretValue
       test.txt: secretValue
