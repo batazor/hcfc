@@ -1,13 +1,14 @@
-package generate
+package initCfg
 
 import (
 	"fmt"
+	"github.com/batazor/hcfc/pkg/generate"
 	"github.com/manifoldco/promptui"
 )
 
 func (p *Project) setSecretConfig() error {
 	// Init secret
-	newSecret := Secret{}
+	newSecret := generate.Secret{}
 
 	// Set metadata
 	newSecret.Metadata.Labels = map[string]string{}

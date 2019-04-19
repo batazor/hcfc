@@ -1,10 +1,13 @@
-package generate
+package initCfg
 
-import "github.com/manifoldco/promptui"
+import (
+	"github.com/batazor/hcfc/pkg/generate"
+	"github.com/manifoldco/promptui"
+)
 
 func (p *Project) setIngressConfig() error {
 	// Init ingress
-	newIngress := Ingress{}
+	newIngress := generate.Ingress{}
 
 	prompt := promptui.Prompt{
 		Label:     "Enable",

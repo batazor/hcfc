@@ -1,7 +1,7 @@
 package cli
 
 import (
-	"github.com/batazor/hcfc/pkg/generate"
+	"github.com/batazor/hcfc/pkg/generate/initCfg"
 	"github.com/spf13/cobra"
 	"log"
 )
@@ -21,7 +21,7 @@ func init() {
 }
 
 func initConfig(cmd *cobra.Command, args []string) {
-	newProject := generate.Project{}
+	newProject := initCfg.Project{}
 
 	err := newProject.Init()
 	if err != nil {

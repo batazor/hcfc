@@ -1,8 +1,9 @@
-package generate
+package initCfg
 
 import (
 	"errors"
 	"fmt"
+	"github.com/batazor/hcfc/pkg/generate"
 	"github.com/manifoldco/promptui"
 	"gopkg.in/yaml.v2"
 	"io/ioutil"
@@ -84,9 +85,9 @@ func (p *Project) isConfirm(label string) error {
 	return nil
 }
 
-func (p *Project) addPort() (Port, error) {
+func (p *Project) addPort() (generate.Port, error) {
 	var err error
-	port := Port{}
+	port := generate.Port{}
 
 	// Set portName
 	setPortName := promptui.Prompt{
@@ -126,7 +127,7 @@ func (p *Project) addPort() (Port, error) {
 }
 
 func (p *Project) saveConfig() error {
-	d, err := yaml.Marshal(&p)
+	d, err := yaml.Marshal(&p.Project)
 	if err != nil {
 		return err
 	}

@@ -18,10 +18,7 @@ deployment:
     repository: alpine
     tag: latest
     pullpolicy: ""
-  ports:
-    - name: http
-      port: 80
-      protocol: TCP
+  ports: []
   resources: null
   nodeselector: null
   affinity: null
@@ -35,10 +32,7 @@ service:
         app.kubernetes.io/name: hcfc
         helm.sh/chart: hcfc-0.1.0
     type: ClusterIP
-    ports:
-      - name: http
-        port: 80
-        protocol: TCP
+    ports: []
     selector:
       app.kubernetes.io/instance: '{{ .Release.Name }}'
       app.kubernetes.io/managed-by: Tiller
@@ -55,5 +49,4 @@ secret:
         app.kubernetes.io/managed-by: Tiller
         app.kubernetes.io/name: hcfc
         helm.sh/chart: hcfc-0.1.0
-    data:
-      test.txt: secretValue
+    data: {}

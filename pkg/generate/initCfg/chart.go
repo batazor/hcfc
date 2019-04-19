@@ -1,4 +1,4 @@
-package generate
+package initCfg
 
 import (
 	"github.com/manifoldco/promptui"

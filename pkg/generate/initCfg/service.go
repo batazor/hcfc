@@ -1,14 +1,15 @@
-package generate
+package initCfg
 
 import (
 	"fmt"
+	"github.com/batazor/hcfc/pkg/generate"
 	"github.com/manifoldco/promptui"
 	"strconv"
 )
 
 func (p *Project) setServiceConfig() error {
 	// Init service
-	newService := Service{}
+	newService := generate.Service{}
 
 	// Set type
 	setTypeService := promptui.Select{

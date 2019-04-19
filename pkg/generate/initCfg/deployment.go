@@ -1,13 +1,14 @@
-package generate
+package initCfg
 
 import (
 	"fmt"
+	"github.com/batazor/hcfc/pkg/generate"
 	"github.com/manifoldco/promptui"
 )
 
 func (p *Project) setDeploymentConfig() error {
 	// Init deployment
-	newDeployment := Deployment{}
+	newDeployment := generate.Deployment{}
 
 	// Set metadata
 	newDeployment.Metadata.Labels = map[string]string{}
