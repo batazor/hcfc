@@ -2,6 +2,12 @@ package generate
 
 import "github.com/batazor/hcfc/pkg/templates"
 
+type configPromptui struct {
+	isCreateMessage string
+	isAddMessage    string
+	setConfigMethod func() error
+}
+
 type BuildConfig struct {
 	Filename  string
 	Template  Template

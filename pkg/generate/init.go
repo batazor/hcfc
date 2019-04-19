@@ -2,6 +2,7 @@ package generate
 
 import (
 	"errors"
+	"fmt"
 	"github.com/manifoldco/promptui"
 	"gopkg.in/yaml.v2"
 	"io/ioutil"
@@ -19,71 +20,43 @@ func (p *Project) Init() error {
 		return err
 	}
 
-	// Create secret
-	err = p.isConfirm("Create a new secret")
-	if err == nil {
-		for {
-			errSecret := p.setSecretConfig()
-			if errSecret != nil {
-				return errSecret
-			}
-
-			isAddResource := p.isConfirm("Add a secret")
-			if isAddResource != nil {
-				break
-			}
-
-		}
+	pipelinePromptui := []configPromptui{
+		{
+			isCreateMessage: "Create a new secret",
+			isAddMessage:    "Add a secret",
+			setConfigMethod: p.setSecretConfig,
+		},
+		{
+			isCreateMessage: "Create a new deployment",
+			isAddMessage:    "Add a deployment",
+			setConfigMethod: p.setDeploymentConfig,
+		},
+		{
+			isCreateMessage: "Create a new service",
+			isAddMessage:    "Add a service",
+			setConfigMethod: p.setServiceConfig,
+		},
+		{
+			isCreateMessage: "Create a new ingress",
+			isAddMessage:    "Add a ingress",
+			setConfigMethod: p.setIngressConfig,
+		},
 	}
 
-	// Create deployment
-	err = p.isConfirm("Create a new deployment")
-	if err == nil {
-		for {
-			errDeployment := p.setDeploymentConfig()
-			if errDeployment != nil {
-				return errDeployment
+	// Create resource
+	for _, cfg := range pipelinePromptui {
+		errCreate := p.isConfirm(cfg.isCreateMessage)
+		if errCreate == nil {
+			fmt.Println("errCreate", errCreate)
+			for {
+				if errCreateConfig := cfg.setConfigMethod(); errCreateConfig != nil {
+					return errCreateConfig
+				}
+
+				if isAddResource := p.isConfirm(cfg.isAddMessage); isAddResource != nil {
+					break
+				}
 			}
-
-			isAddResource := p.isConfirm("Add a deployment")
-			if isAddResource != nil {
-				break
-			}
-
-		}
-	}
-
-	// Create service
-	err = p.isConfirm("Create a new service")
-	if err == nil {
-		for {
-			errService := p.setServiceConfig()
-			if errService != nil {
-				return errService
-			}
-
-			isAddResource := p.isConfirm("Add a service")
-			if isAddResource != nil {
-				break
-			}
-
-		}
-	}
-
-	// Create ingress
-	err = p.isConfirm("Create a new ingress")
-	if err == nil {
-		for {
-			errIngress := p.setIngressConfig()
-			if errIngress != nil {
-				return errIngress
-			}
-
-			isAddResource := p.isConfirm("Add a ingress")
-			if isAddResource != nil {
-				break
-			}
-
 		}
 	}
 
