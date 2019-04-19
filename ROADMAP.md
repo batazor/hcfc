@@ -41,6 +41,7 @@
 
 - [x] Improve `deployment.yaml`
   - [x] Add ENV variable (range)
+- [x] Add support secret (simple)
 - [ ] Improve `Charts.yaml`
   - [ ] Add keywords
   - [ ] Add home
