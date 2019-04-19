@@ -51,6 +51,30 @@ func BuildFile(cfg BuildConfig) error {
 		return err
 	}
 
+	for index, secretConfig := range cfg.Template.Values.Secret {
+		cnf := struct {
+			Chart
+			Secret
+			Index int
+		}{
+			cfg.Template.Values.Chart,
+			secretConfig,
+			index,
+		}
+		templateName := "templates/secret.yaml"
+
+		if len(cfg.Template.Values.Secret) > 1 {
+			cnf.Chart.Name = strings.Join([]string{cnf.Chart.Name, "-", strconv.Itoa(index)}, "")
+			cfg.Template.Filename = strings.Join([]string{"templates/secret-", strconv.Itoa(index), ".yaml"}, "")
+		} else {
+			cfg.Template.Filename = templateName
+		}
+
+		if err := createFile(cfg, templateName, cnf); err != nil {
+			return err
+		}
+	}
+
 	for index, deploymentConfig := range cfg.Template.Values.Deployment {
 		cnf := struct {
 			Chart
@@ -132,7 +156,6 @@ func createValuesFile(cfg BuildConfig, templateName string, values interface{}) 
 	// Create path to file
 	s := []string{cfg.Template.Output, cfg.Template.Filename}
 	pathOutput := strings.Join(s, "/")
-	//fmt.Println("pathOutput", pathOutput)
 
 	// Check directory
 	s = []string{}
@@ -168,7 +191,6 @@ func createFile(cfg BuildConfig, templateName string, values interface{}) error 
 	// Create path to file
 	s := []string{cfg.Template.Output, cfg.Template.Filename}
 	pathOutput := strings.Join(s, "/")
-	//fmt.Println("pathOutput", pathOutput)
 
 	// Check directory
 	s = []string{}

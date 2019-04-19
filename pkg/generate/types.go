@@ -21,6 +21,7 @@ type Project struct {
 	Deployment []Deployment
 	Service    []Service
 	Ingress    []Ingress
+	Secret     []Secret
 }
 
 type Chart struct {
@@ -70,4 +71,9 @@ type Service struct {
 type Ingress struct {
 	Enable bool
 	Domain string
+}
+
+type Secret struct {
+	Metadata Metadata
+	Data     map[string]string // map[fileName]fileValue
 }

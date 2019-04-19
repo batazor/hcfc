@@ -12,9 +12,7 @@ deployment:
       app.kubernetes.io/managed-by: Tiller
       app.kubernetes.io/name: hcfc
       helm.sh/chart: hcfc-0.1.0
-  env:
-    test: test
-    ttrr: test
+  env: {}
   replicas: 0
   image:
     repository: alpine
@@ -27,3 +25,15 @@ deployment:
   tolerations: null
 service: []
 ingress: []
+secret:
+  - name: hcfc
+    metadata:
+      name: ""
+      labels:
+        app.kubernetes.io/instance: '{{ .Release.Name }}'
+        app.kubernetes.io/managed-by: Tiller
+        app.kubernetes.io/name: hcfc
+        helm.sh/chart: hcfc-0.1.0
+    data:
+      hh.t: secretValue
+      test.txt: secretValue
