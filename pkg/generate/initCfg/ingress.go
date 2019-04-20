@@ -16,21 +16,21 @@ func (p *Project) setIngressConfig() error {
 
 	_, err := prompt.Run()
 	if err != nil {
-		newIngress.Enable = false
+		newIngress.Enabled = false
 	}
 
-	newIngress.Enable = true
+	newIngress.Enabled = true
 
 	// Set domain
-	prompt = promptui.Prompt{
-		Label:   "Domain",
-		Default: "example.com",
-	}
-	domain, err := prompt.Run()
-	if err != nil {
-		return err
-	}
-	newIngress.Domain = domain
+	//prompt = promptui.Prompt{
+	//	Label:   "Domain",
+	//	Default: "example.com",
+	//}
+	//domain, err := prompt.Run()
+	//if err != nil {
+	//	return err
+	//}
+	//newIngress.Domain = domain
 
 	// Append new service
 	p.Ingress = append(p.Ingress, newIngress)

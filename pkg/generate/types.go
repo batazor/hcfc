@@ -45,8 +45,9 @@ type Deployment struct {
 }
 
 type Metadata struct {
-	Name   string
-	Labels map[string]string
+	Name        string
+	Labels      map[string]string
+	Annotations map[string]string
 }
 
 type Image struct {
@@ -69,8 +70,30 @@ type Service struct {
 }
 
 type Ingress struct {
-	Enable bool
-	Domain string
+	Enabled  bool
+	Metadata Metadata
+	Domain   []Domain
+}
+
+type Domain struct {
+	Host       []string
+	SecretName string
+	Rules      Rules
+}
+
+type Rules struct {
+	Host string
+	Path []Path
+}
+
+type Path struct {
+	Path    string
+	Backend Backend
+}
+
+type Backend struct {
+	ServiceName string
+	ServicePort int
 }
 
 type Secret struct {

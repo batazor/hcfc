@@ -1,13 +1,37 @@
+{{ if and .Ingress.Enabled }}
 apiVersion: extensions/v1beta1
 kind: Ingress
 metadata:
-    name: {{.Chart.Name}}
-    annotations: {}
+  name: {{ default .Chart.Name .Ingress.Metadata.Name }}
+  annotations:
+  {{- range $key, $value := .Ingress.Metadata.Annotations }}
+    {{ $key }}: {{ $value }}
+  {{- end }}
+  labels:
+  {{- range $key, $value := .Ingress.Metadata.Labels }}
+    {{ $key }}: {{ $value }}
+  {{- end }}
 spec:
-    rules:
-        - http:
-              paths:
-                  - path: /
-                    backend:
-                        serviceName: {{.Chart.Name}}
-                        servicePort: 80
+  tls:
+  {{- range $key, $value := .Ingress.Domain }}
+  {{ $key }}: {{ $value }}
+  - hosts:
+    {{- range $key, $valueHost := $value.Host }}
+    - {{ $valueHost }}
+    {{- end }}
+    secretName: {{ $value.SecretName }}
+  {{- end }}
+  rules:
+  {{- range $key, $value := .Ingress.Domain.Rules }}
+  - host: {{ $value.Host }}
+      http:
+        paths:
+        {{- range $keyRules, $valueRules := $value.Path }}
+        - path: $valueRules.Path
+            backend:
+            {{- range $key, $value := .Ingress.Metadata.Labels }}
+              {{ $key }}: {{ $value }}
+            {{- end }}
+        {{- end }}
+  {{- end }}
+{{ end }}

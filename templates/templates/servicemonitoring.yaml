@@ -1,0 +1,22 @@
+{{ if and .Prometheus.Exporter.Enabled .Prometheus.Operator.Enabled }}
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  name: {{ default .Chart.Name .ServiceMonitor.Metadata.Name }}
+  namespace: {{ default monitoring .ServiceMonitor.Metadata.Namespace }}
+  labels:
+  {{- range $key, $value := .ServiceMonitor.Metadata.Labels }}
+    {{ $key }}: {{ $value }}
+  {{- end }}
+spec:
+  selector:
+    matchLabels:
+    {{- range $key, $value := .ServiceMonitor.Selector.MathLabels }}
+      {{ $key }}: {{ $value }}
+    {{- end }}
+  endpoints:
+  - port: {{ .ServiceMonitor.Port }}
+    interval: {{ .ServiceMonitor.Interval }}
+  namespaceSelector:
+    any: true
+{{ end }}

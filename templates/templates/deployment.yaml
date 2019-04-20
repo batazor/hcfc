@@ -1,13 +1,13 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{default .Chart.Name .Deployment.Metadata.Name }}
+  name: {{ default .Chart.Name .Deployment.Metadata.Name }}
   labels:
   {{- range $key, $value := .Deployment.Metadata.Labels }}
     {{ $key }}: {{ $value }}
   {{- end }}
 spec:
-    replicas: {{ text "{{ default 1 ( index .Values.deployment " }}{{ default 0 .Index }}{{ text ").replicas }}" }}
+  replicas: {{ text "{{ default 1 ( index .Values.deployment " }}{{ default 0 .Index }}{{ text ").replicas }}" }}
   revisionHistoryLimit: 2
   selector:
     matchLabels:
@@ -24,10 +24,10 @@ spec:
         image: {{ text "{{ ( index .Values.deployment " }}{{ default 0 .Index }}{{ text ").image.repository }}" }}:{{ text "{{ (index .Values.deployment " }}{{ default 0 .Index }}{{ text ").image.tag }}" }}
         enableServiceLinks: false
         env:
-                {{ text "{{- range $key, $value := ( index .Values.deployment "}}{{ default 0 .Index }}{{ text ").env }}" }}
-            - name: {{ text "{{ $key }}" }}
-              value: {{ text "{{ $value | quote }}" }}
-              {{ text "{{- end }}" }}
+          {{ text "{{- range $key, $value := ( index .Values.deployment "}}{{ default 0 .Index }}{{ text ").env }}" }}
+          - name: {{ text "{{ $key }}" }}
+            value: {{ text "{{ $value | quote }}" }}
+          {{ text "{{- end }}" }}
         ports:
         {{- range $key, $value := .Deployment.Ports }}
         - name: {{ $value.Name }}
