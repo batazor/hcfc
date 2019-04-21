@@ -78,7 +78,7 @@ type Ingress struct {
 type Domain struct {
 	Host       []string
 	SecretName string
-	Rules      Rules
+	Rules      []Rules
 }
 
 type Rules struct {

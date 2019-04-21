@@ -3,11 +3,9 @@ package initCfg
 import (
 	"errors"
 	"fmt"
-	"github.com/batazor/hcfc/pkg/generate"
 	"github.com/manifoldco/promptui"
 	"gopkg.in/yaml.v2"
 	"io/ioutil"
-	"strconv"
 )
 
 func (p *Project) Init() error {
@@ -83,47 +81,6 @@ func (p *Project) isConfirm(label string) error {
 	}
 
 	return nil
-}
-
-func (p *Project) addPort() (generate.Port, error) {
-	var err error
-	port := generate.Port{}
-
-	// Set portName
-	setPortName := promptui.Prompt{
-		Label:   "Port name",
-		Default: "http",
-	}
-	port.Name, err = setPortName.Run()
-	if err != nil {
-		return port, err
-	}
-
-	// Set port
-	setPortInt := promptui.Prompt{
-		Label:   "Port",
-		Default: "80",
-	}
-	port1, err := setPortInt.Run()
-	if err != nil {
-		return port, err
-	}
-	port.Port, err = strconv.Atoi(port1)
-	if err != nil {
-		return port, err
-	}
-
-	// Set protocol
-	protocol := promptui.Select{
-		Label: "protocol",
-		Items: []string{"TCP", "UDP"},
-	}
-	_, port.Protocol, err = protocol.Run()
-	if err != nil {
-		return port, err
-	}
-
-	return port, nil
 }
 
 func (p *Project) saveConfig() error {
