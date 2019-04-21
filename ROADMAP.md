@@ -65,20 +65,24 @@
   - [ ] Dockerfile
   - [ ] GitHub Action
 
-### v1.3.0 Add best practices
+#### v1.2.1
+
+- [ ] Add `_helpers.tpl`
+
+#### v1.3.0 Add best practices
 
 - [ ] Add more badges ;-)
 - [ ] Add linters
 - [ ] Check linter on github actions
 - [ ] Use k8s/helm structure
 
-### v1.3.1 Add first test
+#### v1.3.1 Add first test
 
 - [ ] Add test create `deployment.yaml`
 - [ ] Add coverage
 - [ ] Add github action
 
-### v1.3.2 Add more test
+#### v1.3.2 Add more test
 
 - [ ] Add test create `deployment`
 - [ ] Add test create `service`
@@ -104,10 +108,12 @@
     - [ ] healthcheck
 - [ ] Dashboard for grafana
 
-#### v1.6.0 Improve deployment
+#### v1.6.0 Improve resource
 
-- [ ] add resource
-- [ ] add nodeSelector
+- [ ] Improve deployment
+  - [ ] add resource
+  - [ ] add nodeSelector
+- [ ] Add StatefulSet
 
 #### v2.0.0 Support Giltab
 

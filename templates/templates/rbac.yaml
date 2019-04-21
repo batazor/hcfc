@@ -1,0 +1,14 @@
+apiVersion: rbac.authorization.k8s.io/v1beta1
+kind: Role
+metadata: {}
+rules: {}
+---
+apiVersion: rbac.authorization.k8s.io/v1beta1
+{{- if .rbac.namespaced }}
+kind: RoleBinding
+{{- else }}
+kind: ClusterRoleBinding
+{{- end }}
+metadata: {}
+roleRef: {}
+subjects: {}
