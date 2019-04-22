@@ -116,7 +116,17 @@
 - [ ] Add StatefulSet
 - [ ] Add DaemonSet
 - [ ] Add RBAC
+
+#### v1.7.0 Improve NetworkPolicy
+
 - [ ] Add NetworkPolicy
+- [ ] Add preset:
+  - [ ] [SCTP support](https://kubernetes.io/docs/concepts/services-networking/network-policies/#sctp-support)
+  - [ ] Default deny all ingress and all egress traffic
+  - [ ] Default allow all egress traffic
+  - [ ] Default deny all egress traffic
+  - [ ] Default allow all ingress traffic
+  - [ ] Default deny all ingress traffic
 
 #### v2.0.0 Support Giltab
 
