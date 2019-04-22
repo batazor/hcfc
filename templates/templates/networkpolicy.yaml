@@ -8,7 +8,11 @@ spec:
     {{- range $key, $value := .NetworkPolicy.Selector.MathLabels }}
       {{ $key }}: {{ $value }}
     {{- end }}
-  policyTypes: []
+  policyTypes:
+  - Ingress
+  ingress:
+  - from:
+    - podSelector: {}
   egress:
   - ports:
     - port: 53
