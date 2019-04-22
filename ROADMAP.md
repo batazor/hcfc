@@ -128,6 +128,11 @@
   - [ ] Default allow all ingress traffic
   - [ ] Default deny all ingress traffic
 
+#### v1.8.0 Add [PodPriority](https://kubernetes.io/docs/concepts/configuration/pod-priority-preemption/)
+
+- [ ] Add `KubeSchedulerConfiguration`
+- [ ] Add `PriorityClass`
+
 #### v2.0.0 Support Giltab
 
 - [ ] Add command `init`
