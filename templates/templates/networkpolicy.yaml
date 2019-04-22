@@ -8,6 +8,7 @@ spec:
     {{- range $key, $value := .NetworkPolicy.Selector.MathLabels }}
       {{ $key }}: {{ $value }}
     {{- end }}
+  policyTypes: []
   egress:
   - ports:
     - port: 53
