@@ -114,6 +114,9 @@
   - [ ] add resource
   - [ ] add nodeSelector
 - [ ] Add StatefulSet
+- [ ] Add DaemonSet
+- [ ] Add RBAC
+- [ ] Add NetworkPolicy
 
 #### v2.0.0 Support Giltab
 
