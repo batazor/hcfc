@@ -113,6 +113,7 @@
 - [ ] Improve deployment
   - [ ] add resource
   - [ ] add nodeSelector
+  - [ ] add securityContext
 - [ ] Add StatefulSet
 - [ ] Add DaemonSet
 - [ ] Add RBAC
@@ -132,6 +133,12 @@
 
 - [ ] Add `KubeSchedulerConfiguration`
 - [ ] Add `PriorityClass`
+
+#### v1.9.0 Add ServiceAccount
+
+- [ ] Add ServiceAccount
+- [ ] Improve deployment,statefulset,daemonset
+  - [ ] add serviceAccountName
 
 #### v2.0.0 Support Giltab
 
