@@ -8,8 +8,7 @@ require (
 	github.com/alecthomas/units v0.0.0-20151022065526-2efee857e7cf // indirect
 	github.com/cyphar/filepath-securejoin v0.2.2 // indirect
 	github.com/ghodss/yaml v1.0.0 // indirect
-	github.com/gobuffalo/packr v1.24.1
-	github.com/gobuffalo/packr/v2 v2.1.0 // indirect
+	github.com/gobuffalo/packr v1.25.0
 	github.com/gobwas/glob v0.2.3 // indirect
 	github.com/golang/protobuf v1.3.1 // indirect
 	github.com/google/uuid v1.1.1 // indirect
