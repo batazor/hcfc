@@ -19,11 +19,11 @@ github.com/client9/misspell
 github.com/cyphar/filepath-securejoin
 # github.com/ghodss/yaml v1.0.0
 github.com/ghodss/yaml
-# github.com/gobuffalo/envy v1.6.15
+# github.com/gobuffalo/envy v1.7.0
 github.com/gobuffalo/envy
 # github.com/gobuffalo/packd v0.0.0-20190315124812-a385830c7fc0
 github.com/gobuffalo/packd
-# github.com/gobuffalo/packr v1.24.1
+# github.com/gobuffalo/packr v1.25.0
 github.com/gobuffalo/packr
 # github.com/gobuffalo/syncx v0.0.0-20190224160051-33c29581e754
 github.com/gobuffalo/syncx
