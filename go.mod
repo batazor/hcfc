@@ -1,7 +1,6 @@
 module github.com/batazor/hcfc
 
 require (
-	github.com/BurntSushi/toml v0.3.1 // indirect
 	github.com/Masterminds/goutils v1.1.0 // indirect
 	github.com/Masterminds/semver v1.4.2 // indirect
 	github.com/Masterminds/sprig v2.18.0+incompatible // indirect
@@ -17,7 +16,7 @@ require (
 	github.com/kr/pty v1.1.4 // indirect
 	github.com/manifoldco/promptui v0.3.2
 	github.com/nicksnyder/go-i18n v1.10.0 // indirect
-	github.com/pelletier/go-toml v1.2.0 // indirect
+	github.com/pelletier/go-toml v1.4.0 // indirect
 	github.com/spf13/cobra v0.0.3
 	github.com/stretchr/objx v0.2.0 // indirect
 	golang.org/x/crypto v0.0.0-20190507100325-e1dfcc566284 // indirect
