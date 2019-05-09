@@ -9,6 +9,7 @@ require (
 	github.com/cyphar/filepath-securejoin v0.2.2 // indirect
 	github.com/ghodss/yaml v1.0.0 // indirect
 	github.com/gobuffalo/packr v1.25.0
+	github.com/gobuffalo/packr/v2 v2.2.0 // indirect
 	github.com/gobwas/glob v0.2.3 // indirect
 	github.com/golang/protobuf v1.3.1 // indirect
 	github.com/google/uuid v1.1.1 // indirect
