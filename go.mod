@@ -19,7 +19,7 @@ require (
 	github.com/pelletier/go-toml v1.4.0 // indirect
 	github.com/spf13/cobra v0.0.3
 	github.com/stretchr/objx v0.2.0 // indirect
-	golang.org/x/crypto v0.0.0-20190510113619-cbcb75029529 // indirect
+	golang.org/x/crypto v0.0.0-20190513175736-22d7a77e9e5f // indirect
 	golang.org/x/net v0.0.0-20190510212706-a4d6f7feada5 // indirect
 	golang.org/x/sync v0.0.0-20190507101157-112230192c58 // indirect
 	golang.org/x/tools v0.0.0-20190510212634-80b1e8742cb0 // indirect
