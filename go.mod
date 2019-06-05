@@ -16,7 +16,7 @@ require (
 	github.com/kr/pty v1.1.4 // indirect
 	github.com/manifoldco/promptui v0.3.2
 	github.com/nicksnyder/go-i18n v1.10.0 // indirect
-	github.com/nicksnyder/go-i18n/v2 v2.0.0 // indirect
+	github.com/nicksnyder/go-i18n/v2 v2.0.1 // indirect
 	github.com/pelletier/go-toml v1.4.0 // indirect
 	github.com/spf13/cobra v0.0.4
 	github.com/stretchr/objx v0.2.0 // indirect
