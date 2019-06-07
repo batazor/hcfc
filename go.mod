@@ -18,7 +18,7 @@ require (
 	github.com/nicksnyder/go-i18n v1.10.0 // indirect
 	github.com/nicksnyder/go-i18n/v2 v2.0.1 // indirect
 	github.com/pelletier/go-toml v1.4.0 // indirect
-	github.com/spf13/cobra v0.0.4
+	github.com/spf13/cobra v0.0.5
 	github.com/stretchr/objx v0.2.0 // indirect
 	golang.org/x/crypto v0.0.0-20190605124544-f99c8df09eb5 // indirect
 	golang.org/x/net v0.0.0-20190607184850-461777fb6f67 // indirect
