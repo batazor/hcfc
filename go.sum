@@ -118,6 +118,7 @@ github.com/nicksnyder/go-i18n v1.10.0 h1:5AzlPKvXBH4qBzmZ09Ua9Gipyruv6uApMcrNZdo
 github.com/nicksnyder/go-i18n v1.10.0/go.mod h1:HrK7VCrbOvQoUAQ7Vpy7i87N7JZZZ7R2xBGjv0j365Q=
 github.com/nicksnyder/go-i18n/v2 v2.0.0/go.mod h1:JXS4+OKhbcwDoVTEj0sLFWL1vOwec2g/YBAxZ9owJqY=
 github.com/nicksnyder/go-i18n/v2 v2.0.1/go.mod h1:JXS4+OKhbcwDoVTEj0sLFWL1vOwec2g/YBAxZ9owJqY=
+github.com/nicksnyder/go-i18n/v2 v2.0.2/go.mod h1:JXS4+OKhbcwDoVTEj0sLFWL1vOwec2g/YBAxZ9owJqY=
 github.com/pelletier/go-toml v1.2.0 h1:T5zMGML61Wp+FlcbWjRDT7yAxhJNAiPPLOFECq181zc=
 github.com/pelletier/go-toml v1.2.0/go.mod h1:5z9KED0ma1S8pY6P1sdut58dfprrGBbd/94hg7ilaic=
 github.com/pelletier/go-toml v1.4.0/go.mod h1:PN7xzY2wHTK0K9p34ErDQMlFxa51Fk0OUruD3k1mMwo=
