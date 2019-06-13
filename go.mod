@@ -21,7 +21,7 @@ require (
 	github.com/spf13/cobra v0.0.5
 	github.com/stretchr/objx v0.2.0 // indirect
 	golang.org/x/crypto v0.0.0-20190611194819-5c40567a22f8 // indirect
-	golang.org/x/net v0.0.0-20190611143332-3f473d35a33a // indirect
+	golang.org/x/net v0.0.0-20190613204151-d28f0bde5980 // indirect
 	golang.org/x/sync v0.0.0-20190507101157-112230192c58 // indirect
 	golang.org/x/tools v0.0.0-20190613165255-149740340b5f // indirect
 	gopkg.in/alecthomas/kingpin.v3-unstable v3.0.0-20180810215634-df19058c872c // indirect
