@@ -21,9 +21,9 @@ github.com/cyphar/filepath-securejoin
 github.com/ghodss/yaml
 # github.com/gobuffalo/envy v1.7.0
 github.com/gobuffalo/envy
-# github.com/gobuffalo/packd v0.0.0-20190315124812-a385830c7fc0
+# github.com/gobuffalo/packd v0.1.0
 github.com/gobuffalo/packd
-# github.com/gobuffalo/packr v1.25.0
+# github.com/gobuffalo/packr v1.26.0
 github.com/gobuffalo/packr
 # github.com/gobuffalo/syncx v0.0.0-20190224160051-33c29581e754
 github.com/gobuffalo/syncx
