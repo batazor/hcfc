@@ -23,7 +23,7 @@ require (
 	golang.org/x/crypto v0.0.0-20190618224002-ea8f1a30c443 // indirect
 	golang.org/x/net v0.0.0-20190619015342-b5b0513f8c1b // indirect
 	golang.org/x/sync v0.0.0-20190507101157-112230192c58 // indirect
-	golang.org/x/tools v0.0.0-20190618235904-04b924abaa25 // indirect
+	golang.org/x/tools v0.0.0-20190619182926-b76e30ffa0aa // indirect
 	gopkg.in/alecthomas/kingpin.v3-unstable v3.0.0-20180810215634-df19058c872c // indirect
 	gopkg.in/yaml.v2 v2.2.2
 	k8s.io/apimachinery v0.0.0-20190322104434-6d73c65dcf6c // indirect
