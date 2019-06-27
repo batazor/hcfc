@@ -301,6 +301,7 @@ golang.org/x/tools v0.0.0-20190624193633-7f2218787638/go.mod h1:/rFqwRUd4F7ZHNgw
 golang.org/x/tools v0.0.0-20190624224135-a101b041ded4/go.mod h1:/rFqwRUd4F7ZHNgwSSTFct+R/Kf4OFW1sUzUTQQTgfc=
 golang.org/x/tools v0.0.0-20190625163901-252024b82959/go.mod h1:/rFqwRUd4F7ZHNgwSSTFct+R/Kf4OFW1sUzUTQQTgfc=
 golang.org/x/tools v0.0.0-20190626224651-a575db70c067/go.mod h1:F+l5rz3/Uc0BJWNSxc0r6FcPZ3lxfduWytgpR5peIOQ=
+golang.org/x/tools v0.0.0-20190627004818-47ea21585cd7/go.mod h1:F+l5rz3/Uc0BJWNSxc0r6FcPZ3lxfduWytgpR5peIOQ=
 golang.org/x/tools/gopls v0.1.0/go.mod h1:p8Q0IUu6EEeGxqmoN/g6Et3gReLCGA7PtNRdyOxcWJE=
 gopkg.in/alecthomas/kingpin.v3-unstable v3.0.0-20180810215634-df19058c872c h1:vTxShRUnK60yd8DZU+f95p1zSLj814+5CuEh7NjF2/Y=
 gopkg.in/alecthomas/kingpin.v3-unstable v3.0.0-20180810215634-df19058c872c/go.mod h1:3HH7i1SgMqlzxCcBmUHW657sD4Kvv9sC3HpL3YukzwA=
