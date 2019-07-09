@@ -38,7 +38,7 @@ github.com/gobwas/glob/syntax/lexer
 github.com/gobwas/glob/util/strings
 # github.com/golang/lint v0.0.0-20181026193005-c67002cb31c3
 github.com/golang/lint/golint
-# github.com/golang/protobuf v1.3.1
+# github.com/golang/protobuf v1.3.2
 github.com/golang/protobuf/ptypes/any
 github.com/golang/protobuf/ptypes/timestamp
 github.com/golang/protobuf/proto
