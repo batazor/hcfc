@@ -4,7 +4,7 @@ github.com/BurntSushi/toml
 github.com/Masterminds/goutils
 # github.com/Masterminds/semver v1.4.2
 github.com/Masterminds/semver
-# github.com/Masterminds/sprig v2.18.0+incompatible
+# github.com/Masterminds/sprig v2.20.0+incompatible
 github.com/Masterminds/sprig
 # github.com/alecthomas/gometalinter v2.0.11+incompatible
 github.com/alecthomas/gometalinter
