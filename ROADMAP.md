@@ -45,7 +45,7 @@
 - [ ] Improve `ingress.yaml`
   - [ ] Add TLS secret
   - [ ] Add annotation (import from ngix-ingress?)
-  - [ ] Add domain
+  - [ ] Add domains
     - [ ] Add patch (route,URL)
     - [ ] Add backend (from service)
 - [ ] Improve `Charts.yaml`
