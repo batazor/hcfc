@@ -94,7 +94,7 @@ golang.org/x/crypto/pbkdf2
 golang.org/x/lint
 # golang.org/x/sys v0.0.0-20190515120540-06a5c4944438
 golang.org/x/sys/unix
-# golang.org/x/tools v0.0.0-20190826194640-1f0dd0289ffc
+# golang.org/x/tools v0.0.0-20190826235109-71894ab67ee3
 golang.org/x/tools/go/ast/astutil
 golang.org/x/tools/go/gcexportdata
 golang.org/x/tools/go/internal/gcimporter
