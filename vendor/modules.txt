@@ -87,7 +87,7 @@ github.com/spf13/cobra
 github.com/spf13/pflag
 # github.com/tsenart/deadcode v0.0.0-20160724212837-210d2dc333e9
 github.com/tsenart/deadcode
-# golang.org/x/crypto v0.0.0-20190907121410-71b5226ff739
+# golang.org/x/crypto v0.0.0-20190909091759-094676da4a83
 golang.org/x/crypto/scrypt
 golang.org/x/crypto/pbkdf2
 # golang.org/x/lint v0.0.0-20181026193005-c67002cb31c3
