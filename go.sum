@@ -461,6 +461,8 @@ golang.org/x/tools v0.0.0-20190915201606-1d8cfc4bd2ca/go.mod h1:b+2E5dAYhXwXZwtn
 golang.org/x/tools v0.0.0-20190916013812-96954830e1ef h1:w/K2SWyWU60EuU+w3hHQ6SYoRVdyE3c2JlxPecM24lg=
 golang.org/x/tools v0.0.0-20190916013812-96954830e1ef/go.mod h1:b+2E5dAYhXwXZwtnZ6UAqBI28+e2cm9otk0dWdXHAEo=
 golang.org/x/tools v0.0.0-20190916015542-f3d05f808b5a/go.mod h1:b+2E5dAYhXwXZwtnZ6UAqBI28+e2cm9otk0dWdXHAEo=
+golang.org/x/tools v0.0.0-20190916020655-1ccc110ba9df h1:aKlccCiTFLWCqScCrJufQgQwzV2MJy8k0+Q+CQ0fc/Y=
+golang.org/x/tools v0.0.0-20190916020655-1ccc110ba9df/go.mod h1:b+2E5dAYhXwXZwtnZ6UAqBI28+e2cm9otk0dWdXHAEo=
 golang.org/x/tools/gopls v0.1.0/go.mod h1:p8Q0IUu6EEeGxqmoN/g6Et3gReLCGA7PtNRdyOxcWJE=
 golang.org/x/xerrors v0.0.0-20190717185122-a985d3407aa7/go.mod h1:I/5z698sn9Ka8TeJc9MKroUUfqBBauWjQqLJ2OPfmY0=
 gopkg.in/alecthomas/kingpin.v3-unstable v3.0.0-20180810215634-df19058c872c h1:vTxShRUnK60yd8DZU+f95p1zSLj814+5CuEh7NjF2/Y=
