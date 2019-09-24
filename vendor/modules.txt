@@ -94,7 +94,7 @@ golang.org/x/crypto/scrypt
 golang.org/x/lint
 # golang.org/x/sys v0.0.0-20190922100055-0a153f010e69
 golang.org/x/sys/unix
-# golang.org/x/tools v0.0.0-20190923230126-0f9bb8f614ff
+# golang.org/x/tools v0.0.0-20190924021748-035fdb12d3f0
 golang.org/x/tools/go/ast/astutil
 golang.org/x/tools/go/gcexportdata
 golang.org/x/tools/go/internal/gcimporter
