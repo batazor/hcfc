@@ -21,7 +21,7 @@ require (
 	github.com/pkg/errors v0.8.1 // indirect
 	github.com/spf13/cobra v0.0.5
 	github.com/stretchr/objx v0.2.0 // indirect
-	golang.org/x/crypto v0.0.0-20190926112457-2682ddc9f58f // indirect
+	golang.org/x/crypto v0.0.0-20190926114937-fa1a29108794 // indirect
 	golang.org/x/net v0.0.0-20190926025831-c00fd9afed17 // indirect
 	golang.org/x/sync v0.0.0-20190911185100-cd5d95a43a6e // indirect
 	golang.org/x/tools v0.0.0-20190925230517-ea99b82c7b93 // indirect
