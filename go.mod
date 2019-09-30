@@ -26,7 +26,7 @@ require (
 	golang.org/x/sync v0.0.0-20190911185100-cd5d95a43a6e // indirect
 	golang.org/x/tools v0.0.0-20190930152728-90aeebe84374 // indirect
 	gopkg.in/alecthomas/kingpin.v3-unstable v3.0.0-20180810215634-df19058c872c // indirect
-	gopkg.in/yaml.v2 v2.2.2
+	gopkg.in/yaml.v2 v2.2.3
 	k8s.io/apimachinery v0.0.0-20190322104434-6d73c65dcf6c // indirect
 	k8s.io/helm v2.14.3+incompatible
 )
