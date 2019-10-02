@@ -3,7 +3,7 @@ module github.com/batazor/hcfc
 require (
 	github.com/Masterminds/goutils v1.1.0 // indirect
 	github.com/Masterminds/semver v1.4.2 // indirect
-	github.com/Masterminds/sprig v2.20.0+incompatible // indirect
+	github.com/Masterminds/sprig v2.22.0+incompatible // indirect
 	github.com/alecthomas/units v0.0.0-20190924025748-f65c72e2690d // indirect
 	github.com/cyphar/filepath-securejoin v0.2.2 // indirect
 	github.com/ghodss/yaml v1.0.0 // indirect
@@ -15,6 +15,7 @@ require (
 	github.com/imdario/mergo v0.3.7 // indirect
 	github.com/kr/pty v1.1.8 // indirect
 	github.com/manifoldco/promptui v0.3.2
+	github.com/mitchellh/copystructure v1.0.0 // indirect
 	github.com/nicksnyder/go-i18n v1.10.1 // indirect
 	github.com/nicksnyder/go-i18n/v2 v2.0.2 // indirect
 	github.com/pelletier/go-toml v1.4.0 // indirect

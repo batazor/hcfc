@@ -4,7 +4,7 @@ github.com/BurntSushi/toml
 github.com/Masterminds/goutils
 # github.com/Masterminds/semver v1.4.2
 github.com/Masterminds/semver
-# github.com/Masterminds/sprig v2.20.0+incompatible
+# github.com/Masterminds/sprig v2.22.0+incompatible
 github.com/Masterminds/sprig
 # github.com/alecthomas/gometalinter v2.0.11+incompatible
 github.com/alecthomas/gometalinter
@@ -68,6 +68,10 @@ github.com/manifoldco/promptui/screenbuf
 github.com/mattn/go-colorable
 # github.com/mattn/go-isatty v0.0.4
 github.com/mattn/go-isatty
+# github.com/mitchellh/copystructure v1.0.0
+github.com/mitchellh/copystructure
+# github.com/mitchellh/reflectwalk v1.0.0
+github.com/mitchellh/reflectwalk
 # github.com/nicksnyder/go-i18n v1.10.1
 github.com/nicksnyder/go-i18n/i18n
 github.com/nicksnyder/go-i18n/i18n/bundle
