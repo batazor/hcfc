@@ -4,7 +4,8 @@
 
 ### Added
 
-- #173: Added getHostByName function to resolve dns names to ips (thanks @fcgravalos)
+- #173: Added getHostByName function to resolve dns names to ips (thanks
+  @fcgravalos)
 - #195: Added deepCopy function for use with dicts
 
 ### Changed
@@ -24,7 +25,8 @@
 
 ### Changed
 
-- #171: Updated glide config for Google UUID to v1 and to add ranges to semver and testify
+- #171: Updated glide config for Google UUID to v1 and to add ranges to semver
+  and testify
 
 ### Fixed
 
@@ -40,9 +42,11 @@
 
 ### Changed
 
-- #144: Fix function comments based on best practices from Effective Go (@CodeLingoTeam)
+- #144: Fix function comments based on best practices from Effective Go
+  (@CodeLingoTeam)
 - #150: Handles pointer type for time.Time in "htmlDate" (@mapreal19)
-- #161, #157, #160,  #153, #158, #156,  #155,  #159, #152 documentation updates (@badeadan)
+- #161, #157, #160, #153, #158, #156, #155, #159, #152 documentation updates
+  (@badeadan)
 
 ### Fixed
 
@@ -50,9 +54,16 @@
 
 IMPORTANT: This release reverts a change from 2.18.0
 
-In the previous release (2.18), we prematurely merged a partial change to the crypto functions that led to creating two sets of crypto functions (I blame @technosophos -- since that's me). This release rolls back that change, and does what was originally intended: It alters the existing crypto functions to use secure random.
+In the previous release (2.18), we prematurely merged a partial change to the
+crypto functions that led to creating two sets of crypto functions (I blame
+@technosophos -- since that's me). This release rolls back that change, and does
+what was originally intended: It alters the existing crypto functions to use
+secure random.
 
-We debated whether this classifies as a change worthy of major revision, but given the proximity to the last release, we have decided that treating 2.18 as a faulty release is the correct course of action. We apologize for any inconvenience.
+We debated whether this classifies as a change worthy of major revision, but
+given the proximity to the last release, we have decided that treating 2.18 as a
+faulty release is the correct course of action. We apologize for any
+inconvenience.
 
 ### Changed
 
@@ -60,7 +71,6 @@ We debated whether this classifies as a change worthy of major revision, but giv
 - Remove extra period 1eb7729 (Matthew Lorimor)
 - Make random string functions use crypto by default 6ceff26 (Matthew Lorimor)
 - README edits/fixes/suggestions 08fe136 (Lauri Apple)
-
 
 ## Release 2.18.0 (2019-02-12)
 
@@ -71,17 +81,20 @@ We debated whether this classifies as a change worthy of major revision, but giv
 
 ### Changed
 
-- Improve documentation of regexMatch function, resolves #139 90b89ce (Jan Tagscherer)
+- Improve documentation of regexMatch function, resolves #139 90b89ce (Jan
+  Tagscherer)
 - Handle has for nil list 9c10885 (Daniel Cohen)
 - Document behaviour of mergeOverwrite fe0dbe9 (Lukas Rieder)
 - doc: adds missing documentation. 4b871e6 (Fernandez Ludovic)
 - Replace outdated goutils imports 01893d2 (Matthew Lorimor)
 - Surface crypto secure random strings from goutils fe1de12 (Matthew Lorimor)
-- Handle untyped nil values as paramters to string functions 2b2ec8f (Morten Torkildsen)
+- Handle untyped nil values as paramters to string functions 2b2ec8f (Morten
+  Torkildsen)
 
 ### Fixed
 
-- Fix dict merge issue and provide mergeOverwrite .dst .src1 to overwrite from src -> dst 4c59c12 (Lukas Rieder)
+- Fix dict merge issue and provide mergeOverwrite .dst .src1 to overwrite from
+  src -> dst 4c59c12 (Lukas Rieder)
 - Fix substr var names and comments d581f80 (Dean Coakley)
 - Fix substr documentation 2737203 (Dean Coakley)
 
@@ -89,7 +102,9 @@ We debated whether this classifies as a change worthy of major revision, but giv
 
 ### Fixed
 
-The 2.17.0 release did not have a version pinned for xstrings, which caused compilation failures when xstrings < 1.2 was used. This adds the correct version string to glide.yaml.
+The 2.17.0 release did not have a version pinned for xstrings, which caused
+compilation failures when xstrings < 1.2 was used. This adds the correct version
+string to glide.yaml.
 
 ## Release 2.17.0 (2019-01-03)
 
@@ -120,7 +135,8 @@ The 2.17.0 release did not have a version pinned for xstrings, which caused comp
 ### Changed
 
 - Modify panic message for list.slice ae38335 (gongdo)
-- Minor improvement in code quality - Removed an unreachable piece of code at defaults.go#L26:6 - Resolve formatting issues. 5834241 (Abhishek Kashyap)
+- Minor improvement in code quality - Removed an unreachable piece of code at
+  defaults.go#L26:6 - Resolve formatting issues. 5834241 (Abhishek Kashyap)
 - Remove duplicated documentation 1d97af1 (Matthew Fisher)
 - Test on go 1.11 49df809 (Helgi Þormar Þorbjörnsson)
 
@@ -149,7 +165,8 @@ The 2.17.0 release did not have a version pinned for xstrings, which caused comp
 ### Fixed
 
 - #76: Fixed documentation typos (thanks @Thiht)
-- Fixed rounding issue on the `ago` function. Note, the removes support for Go 1.8 and older
+- Fixed rounding issue on the `ago` function. Note, the removes support for Go
+  1.8 and older
 
 ## Release 2.14.1 (2017-12-01)
 
@@ -157,11 +174,13 @@ The 2.17.0 release did not have a version pinned for xstrings, which caused comp
 
 - #60: Fix typo in function name documentation (thanks @neil-ca-moore)
 - #61: Removing line with {{ due to blocking github pages genertion
-- #64: Update the list functions to handle int, string, and other slices for compatibility
+- #64: Update the list functions to handle int, string, and other slices for
+  compatibility
 
 ## Release 2.14.0 (2017-10-06)
 
-This new version of Sprig adds a set of functions for generating and working with SSL certificates.
+This new version of Sprig adds a set of functions for generating and working
+with SSL certificates.
 
 - `genCA` generates an SSL Certificate Authority
 - `genSelfSignedCert` generates an SSL self-signed certificate
@@ -171,7 +190,8 @@ This new version of Sprig adds a set of functions for generating and working wit
 
 This release adds new functions, including:
 
-- `regexMatch`, `regexFindAll`, `regexFind`, `regexReplaceAll`, `regexReplaceAllLiteral`, and `regexSplit` to work with regular expressions
+- `regexMatch`, `regexFindAll`, `regexFind`, `regexReplaceAll`,
+  `regexReplaceAllLiteral`, and `regexSplit` to work with regular expressions
 - `floor`, `ceil`, and `round` math functions
 - `toDate` converts a string to a date
 - `nindent` is just like `indent` but also prepends a new line
@@ -206,7 +226,9 @@ This release adds new functions, including:
 - Added `semver` and `semverCompare` for Semantic Versions
 - `list` replaces `tuple`
 - Fixed issue with `join`
-- Added `first`, `last`, `intial`, `rest`, `prepend`, `append`, `toString`, `toStrings`, `sortAlpha`, `reverse`, `coalesce`, `pluck`, `pick`, `compact`, `keys`, `omit`, `uniq`, `has`, `without`
+- Added `first`, `last`, `intial`, `rest`, `prepend`, `append`, `toString`,
+  `toStrings`, `sortAlpha`, `reverse`, `coalesce`, `pluck`, `pick`, `compact`,
+  `keys`, `omit`, `uniq`, `has`, `without`
 
 ## Release 2.9.0 (2017-02-23)
 
@@ -215,7 +237,8 @@ This release adds new functions, including:
 
 ## Release 2.8.0 (2016-12-21)
 
-- Added access to several path functions (`base`, `dir`, `clean`, `ext`, and `abs`)
+- Added access to several path functions (`base`, `dir`, `clean`, `ext`, and
+  `abs`)
 - Added functions for _mutating_ dictionaries (`set`, `unset`, `hasKey`)
 
 ## Release 2.7.0 (2016-12-01)
@@ -230,8 +253,10 @@ This release adds new functions, including:
 ## Release 2.5.0 (2016-08-19)
 
 - New `trimSuffix`, `trimPrefix`, `hasSuffix`, and `hasPrefix` functions
-- New aliases have been added for a few functions that didn't follow the naming conventions (`trimAll` and `abbrevBoth`)
-- `trimall` and `abbrevboth` (notice the case) are deprecated and will be removed in 3.0.0
+- New aliases have been added for a few functions that didn't follow the naming
+  conventions (`trimAll` and `abbrevBoth`)
+- `trimall` and `abbrevboth` (notice the case) are deprecated and will be
+  removed in 3.0.0
 
 ## Release 2.4.0 (2016-08-16)
 
@@ -240,8 +265,10 @@ This release adds new functions, including:
 ## Release 2.3.0 (2016-06-21)
 
 - cat: Concatenate strings with whitespace separators.
-- replace: Replace parts of a string: `replace " " "-" "Me First"` renders "Me-First"
-- plural: Format plurals: `len "foo" | plural "one foo" "many foos"` renders "many foos"
+- replace: Replace parts of a string: `replace " " "-" "Me First"` renders
+  "Me-First"
+- plural: Format plurals: `len "foo" | plural "one foo" "many foos"` renders
+  "many foos"
 - indent: Indent blocks of text in a way that is sensitive to "\n" characters.
 
 ## Release 2.2.0 (2016-04-21)
@@ -250,19 +277,25 @@ This release adds new functions, including:
 
 ## Release 2.1.0 (2016-03-30)
 
-- `default` now prints the default value when it does not receive a value down the pipeline. It is much safer now to do `{{.Foo | default "bar"}}`.
-- Added accessors for "hermetic" functions. These return only functions that, when given the same input, produce the same output.
+- `default` now prints the default value when it does not receive a value down
+  the pipeline. It is much safer now to do `{{.Foo | default "bar"}}`.
+- Added accessors for "hermetic" functions. These return only functions that,
+  when given the same input, produce the same output.
 
 ## Release 2.0.0 (2016-03-29)
 
-Because we switched from `int` to `int64` as the return value for all integer math functions, the library's major version number has been incremented.
+Because we switched from `int` to `int64` as the return value for all integer
+math functions, the library's major version number has been incremented.
 
 - `min` complements `max` (formerly `biggest`)
 - `empty` indicates that a value is the empty value for its type
 - `tuple` creates a tuple inside of a template: `{{$t := tuple "a", "b" "c"}}`
-- `dict` creates a dictionary inside of a template `{{$d := dict "key1" "val1" "key2" "val2"}}` 
-- Date formatters have been added for HTML dates (as used in `date` input fields)
-- Integer math functions can convert from a number of types, including `string` (via `strconv.ParseInt`).
+- `dict` creates a dictionary inside of a template
+  `{{$d := dict "key1" "val1" "key2" "val2"}}`
+- Date formatters have been added for HTML dates (as used in `date` input
+  fields)
+- Integer math functions can convert from a number of types, including `string`
+  (via `strconv.ParseInt`).
 
 ## Release 1.2.0 (2016-02-01)
 
