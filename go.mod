@@ -10,7 +10,6 @@ require (
 	github.com/gobuffalo/packr v1.30.1
 	github.com/gobwas/glob v0.2.3 // indirect
 	github.com/golang/protobuf v1.3.2 // indirect
-	github.com/google/uuid v1.1.1 // indirect
 	github.com/huandu/xstrings v1.2.0 // indirect
 	github.com/imdario/mergo v0.3.8 // indirect
 	github.com/kr/pty v1.1.8 // indirect
@@ -27,7 +26,7 @@ require (
 	golang.org/x/tools v0.0.0-20191012152004-8de300cfc20a // indirect
 	gopkg.in/alecthomas/kingpin.v3-unstable v3.0.0-20180810215634-df19058c872c // indirect
 	gopkg.in/yaml.v2 v2.2.4
-	k8s.io/apimachinery v0.0.0-20190322104434-6d73c65dcf6c // indirect
+	k8s.io/apimachinery v0.0.0-20191014065749-fb3eea214746 // indirect
 	k8s.io/helm v2.14.3+incompatible
 )
 

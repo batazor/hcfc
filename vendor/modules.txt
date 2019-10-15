@@ -92,7 +92,7 @@ golang.org/x/crypto/pbkdf2
 golang.org/x/crypto/scrypt
 # golang.org/x/lint v0.0.0-20181026193005-c67002cb31c3
 golang.org/x/lint
-# golang.org/x/sys v0.0.0-20190515120540-06a5c4944438
+# golang.org/x/sys v0.0.0-20190616124812-15dcb6c0061f
 golang.org/x/sys/unix
 # golang.org/x/tools v0.0.0-20191012152004-8de300cfc20a
 golang.org/x/tools/go/ast/astutil
@@ -102,7 +102,7 @@ golang.org/x/tools/go/internal/gcimporter
 gopkg.in/alecthomas/kingpin.v3-unstable
 # gopkg.in/yaml.v2 v2.2.4
 gopkg.in/yaml.v2
-# k8s.io/apimachinery v0.0.0-20190322104434-6d73c65dcf6c
+# k8s.io/apimachinery v0.0.0-20191014065749-fb3eea214746
 k8s.io/apimachinery/pkg/version
 # k8s.io/helm v2.14.3+incompatible
 k8s.io/helm/pkg/chartutil
