@@ -6,7 +6,6 @@ require (
 	github.com/Masterminds/sprig v2.20.0+incompatible // indirect
 	github.com/alecthomas/units v0.0.0-20190924025748-f65c72e2690d // indirect
 	github.com/cyphar/filepath-securejoin v0.2.2 // indirect
-	github.com/ghodss/yaml v1.0.0 // indirect
 	github.com/gobuffalo/packr v1.30.1
 	github.com/gobwas/glob v0.2.3 // indirect
 	github.com/golang/protobuf v1.3.2 // indirect
@@ -19,7 +18,7 @@ require (
 	github.com/nicksnyder/go-i18n/v2 v2.0.2 // indirect
 	github.com/pelletier/go-toml v1.5.0 // indirect
 	github.com/pkg/errors v0.8.1 // indirect
-	github.com/spf13/cobra v0.0.5
+	github.com/spf13/cobra v0.0.6
 	github.com/stretchr/objx v0.2.0 // indirect
 	golang.org/x/crypto v0.0.0-20191011191535-87dc89f01550 // indirect
 	golang.org/x/net v0.0.0-20191011234655-491137f69257 // indirect
