@@ -792,3 +792,5 @@ k8s.io/helm v2.16.4+incompatible h1:1hjqFl3fI+HejE1WS86SwpRlZHpxoSf8zVxQbfNXxzw=
 k8s.io/helm v2.16.4+incompatible/go.mod h1:LZzlS4LQBHfciFOurYBFkCMTaZ0D1l+p0teMg7TSULI=
 k8s.io/helm v2.16.5+incompatible h1:uohDJ+QNrB5yIPyDqGTARkQNchtIgpLaVaV47NaNZus=
 k8s.io/helm v2.16.5+incompatible/go.mod h1:LZzlS4LQBHfciFOurYBFkCMTaZ0D1l+p0teMg7TSULI=
+k8s.io/helm v2.16.6+incompatible h1:aVg+KRb+ADYgRoX9fRw2FMbBndEjgq1KyxIv+uqYeoM=
+k8s.io/helm v2.16.6+incompatible/go.mod h1:LZzlS4LQBHfciFOurYBFkCMTaZ0D1l+p0teMg7TSULI=
