@@ -800,3 +800,5 @@ k8s.io/helm v2.16.7+incompatible h1:CsJSTV/trIAE0EHE+SRs6UPBbvx5vfyfBaemJvbpQGw=
 k8s.io/helm v2.16.7+incompatible/go.mod h1:LZzlS4LQBHfciFOurYBFkCMTaZ0D1l+p0teMg7TSULI=
 k8s.io/helm v2.16.8+incompatible h1:cZGW/DyuP0kcXL2J1VHV1J0sWIqYIw/d9IjusF0vO8c=
 k8s.io/helm v2.16.8+incompatible/go.mod h1:LZzlS4LQBHfciFOurYBFkCMTaZ0D1l+p0teMg7TSULI=
+k8s.io/helm v2.16.9+incompatible h1:yFz+WVaV9SA/DwOjTU8h7vGRs1EzKHF18OSF6dQ5w3o=
+k8s.io/helm v2.16.9+incompatible/go.mod h1:LZzlS4LQBHfciFOurYBFkCMTaZ0D1l+p0teMg7TSULI=
