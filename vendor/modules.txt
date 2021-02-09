@@ -6,15 +6,8 @@ github.com/Masterminds/goutils
 github.com/Masterminds/semver
 # github.com/Masterminds/sprig v2.20.0+incompatible
 github.com/Masterminds/sprig
-# github.com/alecthomas/gometalinter v2.0.11+incompatible
-github.com/alecthomas/gometalinter
-# github.com/alecthomas/units v0.0.0-20190924025748-f65c72e2690d
-github.com/alecthomas/units
 # github.com/chzyer/readline v0.0.0-20180603132655-2972be24d48e
 github.com/chzyer/readline
-# github.com/client9/misspell v0.3.4
-github.com/client9/misspell
-github.com/client9/misspell/cmd/misspell
 # github.com/cyphar/filepath-securejoin v0.2.2
 github.com/cyphar/filepath-securejoin
 # github.com/ghodss/yaml v1.0.0
@@ -35,18 +28,12 @@ github.com/gobwas/glob/syntax/ast
 github.com/gobwas/glob/syntax/lexer
 github.com/gobwas/glob/util/runes
 github.com/gobwas/glob/util/strings
-# github.com/golang/lint v0.0.0-20181026193005-c67002cb31c3
-github.com/golang/lint/golint
 # github.com/golang/protobuf v1.3.2
 github.com/golang/protobuf/proto
 github.com/golang/protobuf/ptypes/any
 github.com/golang/protobuf/ptypes/timestamp
-# github.com/google/shlex v0.0.0-20181106134648-c34317bd91bf
-github.com/google/shlex
 # github.com/google/uuid v1.1.1
 github.com/google/uuid
-# github.com/gordonklaus/ineffassign v0.0.0-20180909121442-1003c8bd00dc
-github.com/gordonklaus/ineffassign
 # github.com/huandu/xstrings v1.2.0
 github.com/huandu/xstrings
 # github.com/imdario/mergo v0.3.8
@@ -60,7 +47,7 @@ github.com/juju/ansiterm
 github.com/juju/ansiterm/tabwriter
 # github.com/lunixbochs/vtclean v0.0.0-20180621232353-2d01aacdc34a
 github.com/lunixbochs/vtclean
-# github.com/manifoldco/promptui v0.3.2
+# github.com/manifoldco/promptui v0.8.0
 github.com/manifoldco/promptui
 github.com/manifoldco/promptui/list
 github.com/manifoldco/promptui/screenbuf
@@ -68,13 +55,6 @@ github.com/manifoldco/promptui/screenbuf
 github.com/mattn/go-colorable
 # github.com/mattn/go-isatty v0.0.4
 github.com/mattn/go-isatty
-# github.com/nicksnyder/go-i18n v1.10.1
-github.com/nicksnyder/go-i18n/i18n
-github.com/nicksnyder/go-i18n/i18n/bundle
-github.com/nicksnyder/go-i18n/i18n/language
-github.com/nicksnyder/go-i18n/i18n/translation
-# github.com/pelletier/go-toml v1.5.0
-github.com/pelletier/go-toml
 # github.com/pkg/errors v0.8.1
 github.com/pkg/errors
 # github.com/rogpeppe/go-internal v1.3.0
@@ -85,21 +65,11 @@ github.com/rogpeppe/go-internal/semver
 github.com/spf13/cobra
 # github.com/spf13/pflag v1.0.3
 github.com/spf13/pflag
-# github.com/tsenart/deadcode v0.0.0-20160724212837-210d2dc333e9
-github.com/tsenart/deadcode
 # golang.org/x/crypto v0.0.0-20191011191535-87dc89f01550
 golang.org/x/crypto/pbkdf2
 golang.org/x/crypto/scrypt
-# golang.org/x/lint v0.0.0-20190313153728-d0100b6bd8b3
-golang.org/x/lint
 # golang.org/x/sys v0.0.0-20190515120540-06a5c4944438
 golang.org/x/sys/unix
-# golang.org/x/tools v0.0.0-20191012152004-8de300cfc20a
-golang.org/x/tools/go/ast/astutil
-golang.org/x/tools/go/gcexportdata
-golang.org/x/tools/go/internal/gcimporter
-# gopkg.in/alecthomas/kingpin.v3-unstable v3.0.0-20180810215634-df19058c872c
-gopkg.in/alecthomas/kingpin.v3-unstable
 # gopkg.in/yaml.v2 v2.4.0
 gopkg.in/yaml.v2
 # k8s.io/apimachinery v0.0.0-20190322104434-6d73c65dcf6c
