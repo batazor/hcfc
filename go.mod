@@ -6,7 +6,7 @@ require (
 	github.com/Masterminds/sprig v2.20.0+incompatible // indirect
 	github.com/alecthomas/units v0.0.0-20190924025748-f65c72e2690d // indirect
 	github.com/cyphar/filepath-securejoin v0.2.2 // indirect
-	github.com/gobuffalo/packr v1.30.1
+	github.com/gobuffalo/packr/v2/v2 v2.8.1
 	github.com/gobwas/glob v0.2.3 // indirect
 	github.com/golang/protobuf v1.3.2 // indirect
 	github.com/google/uuid v1.1.1 // indirect
