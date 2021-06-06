@@ -27,7 +27,7 @@ require (
 	gopkg.in/alecthomas/kingpin.v3-unstable v3.0.0-20180810215634-df19058c872c // indirect
 	gopkg.in/yaml.v2 v2.4.0
 	k8s.io/apimachinery v0.0.0-20190322104434-6d73c65dcf6c // indirect
-	k8s.io/helm v2.17.0+incompatible
+	k8s.io/helm/v3 v3.6.0
 )
 
 go 1.13
