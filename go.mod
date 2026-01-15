@@ -43,4 +43,4 @@ require (
 	k8s.io/apimachinery v0.0.0-20190322104434-6d73c65dcf6c // indirect
 )
 
-go 1.25.5
+go 1.25.6
