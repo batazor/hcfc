@@ -105,9 +105,11 @@ golang.org/x/sys/unix
 ## explicit; go 1.11
 # gopkg.in/alecthomas/kingpin.v3-unstable v3.0.0-20180810215634-df19058c872c
 ## explicit
-# gopkg.in/yaml.v2 v2.4.0
-## explicit; go 1.15
+# gopkg.in/yaml.v2 v2.2.4
+## explicit
 gopkg.in/yaml.v2
+# gopkg.in/yaml.v3 v3.0.1
+## explicit
 # k8s.io/apimachinery v0.0.0-20190322104434-6d73c65dcf6c
 ## explicit
 k8s.io/apimachinery/pkg/version
