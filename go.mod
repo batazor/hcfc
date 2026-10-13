@@ -15,7 +15,7 @@ require (
 	github.com/Masterminds/sprig v2.20.0+incompatible // indirect
 	github.com/alecthomas/units v0.0.0-20190924025748-f65c72e2690d // indirect
 	github.com/chzyer/readline v0.0.0-20180603132655-2972be24d48e // indirect
-	github.com/cyphar/filepath-securejoin v0.2.2 // indirect
+	github.com/cyphar/filepath-securejoin v0.2.4 // indirect
 	github.com/ghodss/yaml v1.0.0 // indirect
 	github.com/gobuffalo/envy v1.7.0 // indirect
 	github.com/gobuffalo/packd v0.3.0 // indirect

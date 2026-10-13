@@ -15,8 +15,8 @@ github.com/Masterminds/sprig
 # github.com/chzyer/readline v0.0.0-20180603132655-2972be24d48e
 ## explicit
 github.com/chzyer/readline
-# github.com/cyphar/filepath-securejoin v0.2.2
-## explicit
+# github.com/cyphar/filepath-securejoin v0.2.4
+## explicit; go 1.13
 github.com/cyphar/filepath-securejoin
 # github.com/ghodss/yaml v1.0.0
 ## explicit
