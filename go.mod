@@ -4,7 +4,8 @@ require (
 	github.com/gobuffalo/packr v1.30.1
 	github.com/manifoldco/promptui v0.9.0
 	github.com/spf13/cobra v0.0.7
-	gopkg.in/yaml.v2 v2.4.0
+	gopkg.in/yaml.v2 v2.2.4
+	gopkg.in/yaml.v3 v3.0.1
 	k8s.io/helm v2.17.0+incompatible
 )
 
